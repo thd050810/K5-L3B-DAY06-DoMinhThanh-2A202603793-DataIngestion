@@ -1,8 +1,8 @@
 # Thông tin học viên
 
-- Họ và tên:
-- MSSV:
-- Lớp: L3A / L3B / khác:
-- Chủ đề và corpus:
+- Họ và tên: Đỗ Minh Thanh
+- MSSV: 2A202603793
+- Lớp: L3B
+- Chủ đề và corpus: Truy xuất kiến thức machine learning từ 34 trang PDF (76–109), chương 5–8 của sách Machine Learning cơ bản — Vũ Hữu Tiệp.
 - Repo bài nộp:
 - Commit chốt bài:

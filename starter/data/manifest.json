@@ -1,0 +1,274 @@
+[
+  {
+    "document_id": "book-ml",
+    "path": "book_ML_color.pdf",
+    "source": "book_ML_color.pdf",
+    "content_pages": [
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109
+    ],
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/"
+    },
+    "page_metadata": {
+      "76": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 64
+      },
+      "77": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 65
+      },
+      "78": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 66
+      },
+      "79": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 67
+      },
+      "80": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 68
+      },
+      "81": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 69
+      },
+      "82": {
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 70
+      },
+      "83": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 71
+      },
+      "84": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 72
+      },
+      "85": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 73
+      },
+      "86": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 74
+      },
+      "87": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 75
+      },
+      "88": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 76
+      },
+      "89": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 77
+      },
+      "90": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 78
+      },
+      "91": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 79
+      },
+      "92": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 80
+      },
+      "93": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 81
+      },
+      "94": {
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 82
+      },
+      "95": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 83
+      },
+      "96": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 84
+      },
+      "97": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 85
+      },
+      "98": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 86
+      },
+      "99": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 87
+      },
+      "100": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 88
+      },
+      "101": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 89
+      },
+      "102": {
+        "section": "linear-regression",
+        "chapter": 7,
+        "chapter_title": "Linear regression",
+        "printed_page": 90
+      },
+      "103": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 91
+      },
+      "104": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 92
+      },
+      "105": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 93
+      },
+      "106": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 94
+      },
+      "107": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 95
+      },
+      "108": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 96
+      },
+      "109": {
+        "section": "overfitting",
+        "chapter": 8,
+        "chapter_title": "Overfitting",
+        "printed_page": 97
+      }
+    },
+    "selection_notes": {
+      "page_numbering": "content_pages và gold_page dùng số trang vật lý PDF, bắt đầu từ 1; số trang in trong phạm vi này bằng trang PDF trừ 12.",
+      "included": "34 trang liên tiếp 76–109, chứa nội dung thực của chương 5–8, gồm diễn giải, ví dụ, hình, bảng và code. Trang 94, 102 và 109 có mục đọc thêm nhưng vẫn có nội dung chuyên môn nên được tính.",
+      "excluded": "Không chọn bìa, lời tác giả, mục lục, các phần ngoài phạm vi chương 5–8 hoặc trang trống 110. Mục tiêu là corpus có phạm vi rõ, không phải xử lý toàn bộ 400 trang.",
+      "metadata_provenance": "Tên sách và tác giả ở bìa; năm từ Last update March 27, 2018 ở trang PDF 2; chapter, chapter_title, section lấy từ tiêu đề chương và trang đang xét. section là slug ổn định của tên chương. printed_page đối chiếu số trang in.",
+      "split_policy": "Cố định trước khi truy xuất: q01–q15 dev từ chương 5–7 (PDF 76–102); q16–q20 test từ chương 8 (PDF 103–109). Cùng corpus 34 trang cho cả hai split và cả ba chiến lược.",
+      "leakage_limitations": "Các chương có tham chiếu và khái niệm liên quan, nên tách theo chương giúp giảm trùng chủ đề nhưng không loại bỏ hoàn toàn nguy cơ rò rỉ nội dung.",
+      "filter_policy": "Filter section chỉ có ở câu hỏi nêu rõ phạm vi chương; giá trị filter được xác định từ phạm vi trong câu hỏi, không suy từ đáp án hay gold_page.",
+      "creation_and_verification": "Codex hỗ trợ soạn câu hỏi và đáp án từ PDF. Evidence được đối chiếu với văn bản trích xuất ở từng trang, chuẩn hóa NFC và khoảng trắng; kiểm tra mẫu trực quan các trang mở chương và trang 105, 109. Chưa chạy retrieval hoặc điều chỉnh câu hỏi theo kết quả test.",
+      "configuration_selection": "Chỉ dùng kết quả dev để chọn cấu hình; ưu tiên Evidence Hit@3, rồi Hit@1, sau đó thời gian ingest và số chunk. Cố định cấu hình trước khi chạy test; coherence và grounding chấm thủ công theo GUIDE.md.",
+      "extraction": {
+        "library": "pypdf",
+        "version": "6.21.4",
+        "method": "extract_text",
+        "normalization": "NFC và chuẩn hóa khoảng trắng bằng ingestion.normalize_text; evidence được chuẩn hóa khoảng trắng như evaluation.evidence_text.",
+        "compatibility_note": "Đồng bộ khoảng trắng evidence từ pypdf 4.3.1 sang 6.21.4; xác nhận chuỗi bỏ khoảng trắng giống nhau hoàn toàn, không thay nội dung, câu hỏi, đáp án hoặc split. Chưa chạy truy xuất test."
+      }
+    }
+  }
+]

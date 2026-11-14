@@ -1,0 +1,13 @@
+[
+  {
+    "id": "q01",
+    "split": "dev",
+    "question": "REPLACE_WITH_YOUR_QUESTION",
+    "expected_answer": "REPLACE_WITH_VERIFIED_ANSWER",
+    "gold_source_id": "book-ml",
+    "gold_page": 1,
+    "evidence_quote": "REPLACE_WITH_EXACT_EVIDENCE_FROM_PDF",
+    "filter": {"section": "REPLACE_WITH_VERIFIED_SECTION"},
+    "alternative_gold": []
+  }
+]

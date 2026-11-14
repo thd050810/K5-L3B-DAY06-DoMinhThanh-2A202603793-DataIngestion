@@ -1,0 +1,3682 @@
+[
+  {
+    "chunk_id": "6c5d7da5e595b9fbdbecb80fdcdd27794a56e2a91a04293af9bb26a9d9df8d44",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 76,
+    "text": "Chương 5\nCác khái niệm cơ bản\nNội dung của chương này được tham khảo chủ yếu từ Mục 5.1 trong cuốn sáchDeep learning\n(Goodfellow, 2016).\nMột thuật toán machine learning là một thuật toán có khả nănghọc tậptừ dữ liệu. Vậy thực\nsự học tậpở đây có nghĩa như thế nào? Theo Mitchell trong cuốnMachine Learning[M+97],\nMục 1.1, thì “A computer program is said tolearn from experienceE with respect to some\ntasks T and performance measureP, if its performance at tasks inT, as measured byP,\nimproves with exp",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 64,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "68524ac599f26bbe1e2bd9d01f81e0f98a43455ebe90fd246c53d3cb4c01eaba",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 76,
+    "text": "e at tasks inT, as measured byP,\nimproves with experienceE. ”\nTạm dịch:\nĐịnh nghĩa 5.1: Học (chương trình máy tính)\nMột chương trình máy tính được gọi làhọc từ kinh nghiệmE để hoàn thànhnhiệm\nvụ T, với hiệu quả được đo bằngphép đánh giáP, nếu hiệu quả của nó khi thực hiện\nnhiệm vụT, khi được đánh giá bởiP, cải thiện theo kinh nghiệmE.\nTrongchươngnày,chúngtasẽđivàotừngkháiniệm task,performance measure,và experience\nthông qua các ví dụ.\n5.1 Nhiệm vụ,T\nCác nhiệm vụ trong machine learning thường đượ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 64,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "519e27a153e6ba80aad833d426447a9e49a3cc4b680b32139863fd83e6699702",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 76,
+    "text": "ụ,T\nCác nhiệm vụ trong machine learning thường được mô tả thông qua việc một hệ thống\nmachine learning xử lý mộtđiểm dữ liệu(data point) như thế nào. Trong bài toán phân loại\nảnh, mỗi ảnh là một điểm dữ liệu. Trong bài toán phân nhóm khách hàng, mỗi khách hàng\nlà một điểm dữ liệu. Trong bài toán xác định một tin nhắn có là rác hay không, mỗi tin\nnhắn là một điểm dữ liệu. Mỗi điểm dữ liệu bao gồm nhiềuđặc trưng (feature) khác nhau,\nmỗi feature thường được biểu diễn dưới dạng một con số. Chúng ta ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 64,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4a6dcfecb7c776bc91b2cac07be3dc453c376a5ed90a5b92407a5a4916cbf4b4",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 76,
+    "text": "ờng được biểu diễn dưới dạng một con số. Chúng ta thường biểu diễn một",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 64,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c7b275d4d28311caa7ba077994d64d6d4f6979580f7810693fadd4788bc4f231",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": "65 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nđiểm dữ liệu như một vector1 x∈ Rd trong đó mỗi phần tửxi là một đặc trưng, vector này\nthường được gọi làvector đặc trưng(feature vector). Ví dụ, trong một bức ảnh, mỗi giá trị\ncủa một điểm ảnh có thể coi là một đặc trưng, vector chứa toàn bộ giá trị các pixel của ảnh\ncó thể coi là một vector đặc trưng. Chương 6 sẽ bàn sâu thêm về vector đặc trưng của dữ\nliệu.\nRất nhiều nhiệm vụ phức tạp có thể được giải quyết bằng machine learning. Dưới đây là\nmột trong những b",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "fddc30ca253972eaba21e976d537e9d56c824270eb061ab7b0f20bacb7a83c8e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": "ng machine learning. Dưới đây là\nmột trong những bài toán phổ biến nhất của machine learning.\n5.1.1 Classification\nClassification, hayphân loại, phân lớp. Đây là một trong những bài toán được nghiên cứu\nnhiều nhất trong machine learning. Trong bài toán này, chương trình sẽ được yêu cầu chỉ ra\nnhãn, haylớp (label) của một điểm dữ liệu. Nhãn này thường là một phần tử trong một tập\nhợp cóC phần tử khác nhau. Mỗi phần tử trong tập hợp này được gọi là mộtlớp (class), và\nthường được đánh số từ1 đến C.",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "7a63faf7a99037494720cd6f85d2c5843f925f9954083095e65dc0e96159ceaf",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": " mộtlớp (class), và\nthường được đánh số từ1 đến C. Để giải bài toán này, ta thường phải xây dựng một hàm\nsố f : Rd→{ 1, 2,...,C }. Khiy =f(x), mô hình gán cho một điểm dữ liệu được mô tả bởi\nvector đặc trưngx một nhãn được xác định bởi sốy.\nVí dụ: trong nhận dạng chữ số viết tay, ta có ảnh của hàng nghìn ví dụ của mỗi chữ số\nđược viết bởi nhiều người khác nhau. Các bức ảnh này cùng với nhãn của chúng được đưa\nvào một thuật toán machine learning. Sau khi thuật toán nàyhọc được một mô hình, tức\nmộ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "3c8bfcc36090ada6b12e9438d52ffb334ac97ccd56e159dca558a6c25974a009",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": "Sau khi thuật toán nàyhọc được một mô hình, tức\nmột hàm số mà đầu vào là một bức ảnh và đầu ra là một chữ số, khi nhận được một bức\nảnh mới mà mô hìnhchưa nhìn thấy bao giờ, nó sẽ dự đoán bức ảnh đó chứa chữ số nào.\nVí dụ này khá giống với cách học của con người khi còn nhỏ. Ta đưa bảng chữ cái cho một\nđứa trẻ và chỉ cho chúng đây là chữ A, đây là chữ B. Sau một vài lần được dạy thì trẻ có\nthể nhận biết được đâu là chữ A, đâu là chữ B mà chúng chưa nhìn thấy bao giờ.\nCó một biến thể nhỏ ở đầu ra",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "77c5c8337af9275b036802bedeb10e3581c8d01798c2dabc75e9ba4e5cbb5993",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": "ưa nhìn thấy bao giờ.\nCó một biến thể nhỏ ở đầu ra của hàm sốf(x) khi đầu ra không phải là một số mà là một\nvector y∈ RC trong đóyc chỉ ra xác suất để điểm dữ liệux rơi vào lớp thức. Lớp được\nchọn cuối cùng là lớp có xác suất rơi vào là cao nhất. Việc sử dụng xác suất này đôi khi rất\nquan trọng, nó giúp chỉ rađộ chắc chắn(confidence) của mô hình. Nếu xác suất cao nhất\nlà cao hơn nhiều so với các xác suất còn lại, ta nói mô hình có độ chắn chắn là cao khi phân\nlớp điểm dữ liệux. Ngược lại, nếu độ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "91d465bd1b1fc156b653e15905b906ac4578e0b1f9f45f9df771717d5e96eb54",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": " cao khi phân\nlớp điểm dữ liệux. Ngược lại, nếu độ chênh lệch giữa xác suất cao nhất và các xác suất tiếp\ntheo là nhỏ, thì khả năng mô hình đã phân loại nhầm là cao hơn.\n5.1.2 Regression\nNếu nhãn không được chia thành các nhóm mà là các giá trị thực (có thể vô hạn) thì bài\ntoán được gọi làhồi quy, một số tài liệu gọi làtiên lượng (regression). Trong bài toán này,\nta cần xây dựng một hàm sốf : Rd→ R.\n1 Có những loại dữ liệu không được biểu diễn dưới dạng một vector mà có thể là một ma trận–khi gi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "62fbb2c2eb57bbd365f8b57d57ef8765cdf7c7c74f0af58b3ad69bc2ba6399fe",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 77,
+    "text": "ới dạng một vector mà có thể là một ma trận–khi giữ nguyên một\nbức ảnh trong không gian hai chiều, hoặc mộttensor–mảng nhiều chiều–khi xem các bức ảnh với nhiều channel\nkhác nhau. Trong cuốn sách này, chúng ta chỉ xét các điểm dữ liệu dưới dạng vector, hoặcvector hoá(vectorization)\ncác điểm dữ liệu nhiều chiều.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 65,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "fed479a1d5d40da4058111ee08c769cb76acfbf17ba7e12ae7247b18dd92b40e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 66\nVí dụ 1:Ước lượng một căn nhà rộngx m2, cóy phòng ngủ và cách trung tâm thành phố\nz km sẽ có giá khoảng bao nhiêu?\nVí dụ 2:Microsoft có một ứng dụng dự đoán giới tính và tuổi dựa trên khuôn mặt (http:\n//how-old.net/ ). Phần dự đoán giới tính có thể được coi là một thuật toán classification,\nphần dự đoán tuổi có thể coi là một thuật toán regression. Chú ý rằng phần dự đoán tuổi\ncũng có thể coi là classification nếu ta coi tuổi là một số nguyên dương không lớn hơn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "d8cdb4a4c301beb00a40b93cfa1dbc265ae4fe5d563b713d36761f4f1df7cba2",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "u ta coi tuổi là một số nguyên dương không lớn hơn 150,\nchúng ta sẽ có 150 class (lớp) khác nhau.\nBài toán regression có thể mở rộng ra việc dự đoán nhiều đầu ra cùng một lúc, khi đó, hàm\ncần tìm sẽ làf : Rd→ Rm. Một ví dụ là bài toánsingle image super resolution, ở đó, hệ\nthống cần tạo ra một bức ảnh có độ phân giải cao dựa trên một ảnh có độ phân giải thấp\nhơn. Khi đó, việc dự đoán giá trị của các pixel trong ảnh đầu ra là một bài toán regression\nvới nhiều đầu ra.\n5.1.3 Machine translation\nTro",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "969e677345213ad6c3fde9bec6ce5a01723181d45f4cfddf536be40e3587af63",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "on\nvới nhiều đầu ra.\n5.1.3 Machine translation\nTrong bài toán này, đầu vào là một câu, đoạn, hay bài văn trong một ngôn ngữ, và chương\ntrình máy tính được yêu cầu chuyển đổi nó sang một ngôn ngữ khác. Lời giải cho bài toán\nnày gần đây đã có nhiều bước phát triển vượt bậc dựa trên các thuật toán deep learning.\n5.1.4 Clustering\nClustering là bài toánphân nhóm toàn bộ dữ liệuX thành các nhóm nhỏ dựa trên sự liên\nquan giữa các dữ liệu trong mỗi nhóm.\nVí dụ:phân nhóm khách hàng dựa trên hành vi mua h",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "217819821197db56df3bf92a2b08e7c8be01c337d93d12c24b5ee2e452a11476",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "\nVí dụ:phân nhóm khách hàng dựa trên hành vi mua hàng. Điều này cũng giống như việc\nta đưa cho một đứa trẻ rất nhiều mảnh ghép với các hình thù và màu sắc khác nhau, ví dụ\ntam giác, vuông, tròn với màu xanh và đỏ, sau đó yêu cầu trẻ phân chúng thành từng nhóm.\nMặc dù không cho trẻ biết mảnh nào tương ứng với hình nào hoặc màu nào, nhiều khả năng\nchúng vẫn có thể phân loại các mảnh ghép theo màu hoặc hình dạng.\n5.1.5 Completion\nCompletion là bài toánđiền những giá trị còn thiếu của một điểm dữ li",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "54a02c7a5b17600381bd7229cfa20c775de8f0e8d302bb30b7e4d3666867a00c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "oánđiền những giá trị còn thiếu của một điểm dữ liệu. Trong nhiều bài\ntoán thực tế, việc thu thập toàn bộ thông tin của một điểm dữ liệu, ví dụ khách hàng, là\nkhông khả thi. Nhiệm vụ của bài toán này là dựa trên mối tương quan giữa các điểm dữ liệu\nđể dự đoán những giá trị còn thiếu.Các hệ thống khuyến nghị(recommendation system) là\nmột ví dụ điển hình của loại này.\nBạn đọc có thể đọc thêm về các bài toánxếp hạng(ranking), thu thập thông tin(information\nretrieval), giảm nhiễu (denoising), v.v..\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "bd6b0eaf5d2ac3e6f5fd942a879f458b979238a1fed33ce3f7b7c9eac4136838",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 78,
+    "text": "rmation\nretrieval), giảm nhiễu (denoising), v.v..\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 66,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4962bcbf37e4ce5e688007399799ec185cde96989c90e6555400b297e7616a81",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": "67 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\n5.2 Phép đánh giá,P\nĐể kiểm tra năng lực của một thuật toán machine learning, chúng ta cần phải thiết kế các\nphép đánh giá có thể đo đạc được kết quả.\nThông thường, khi thực hiện một thuật toán machine learning, dữ liệu sẽ được chia thành\nhai phần riêng biệt:tập huấn luyện(training set) vàtập kiểm thử(test set). Tập huấn luyện\nsẽ được dùng để tìm các tham số mô hình. Tập kiểm thử được dùng để đánh giá năng lực\ncủa mô hình tìm được. Có một điểm cần lưu ý rằng khi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2302fb15518b40f2179c5c71f1ad931e4db7985d74aa86993b9ffce5ca575b7e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": "a mô hình tìm được. Có một điểm cần lưu ý rằng khi tìm các tham số mô hình, ta chỉ\nđược dùng các thông tin trong tập huấn luyện. Việc đánh giá có thể được áp dụng lên cả\nhai tập hợp. Muốn mô hình thực hiện tốt trên tập kiểm thử thì nó trước hết phải hoạt động\ntốt trên tập huấn luyện.\nLưu ý: Ranh giới giữa tập huấn luyện và tập kiểm thử đôi khi không rõ ràng. Các thuật\ntoán thực tế liên tục được cập nhật dựa trên dữ liệu mới thêm vào, các thuật toán này được\ngọi là online learning hoặc online tra",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "28f5be4898f6a261f2ef247338dec3f4eb4dd5fcb336b2fd6b50d34af01ee84e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": "án này được\ngọi là online learning hoặc online training. Phần dữ liệu mới này ban đầu không được hệ\nthống sử dụng để xây dựng mô hình, nhưng về sau có thể được mô hình sử dụng để cải\ntiến. Ngược vớionline learninglà offline learning, ở đó hệ thống xây dựng mô hìnhmột lần\ndựa trên một tập chính là tập huấn luyện. Các điểm dữ liệu không được dùng trong quá\ntrình xây dựng hệ thống được coi là tập kiểm thử. Trong cuốn sách này, khi không đề cập\ngì thêm, các thuật toán được ngầm hiểu làoffline learni",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "e18f3bc9a5c689c359cf8f578b803f1c91d5a83a828688df1fa4e51d616c241b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": "êm, các thuật toán được ngầm hiểu làoffline learning, trong đótraining setlà tập hợp\nđược dùng để xây dựng mô hình ban đầu,test set là tập hợp được dùng để đánh giá hiệu\nquả của mô hình được xây dựng đó.\n5.3 Kinh nghiệm,E\nViệc huấn luyện các mô hình machine learning có thể coi là việc cho chúngtrải nghiệmtrên\ncác tập dữ liệu (dataset)–chính là training set. Các tập dữ liệu khác nhau sẽ cho các mô\nhình các trải nghiệm khác nhau. Chất lượng của các tập dữ liệu này cũng ảnh hưởng tới\nhiệu năng của ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "6362628410f15a18c97c81ab127baac3d8410057c6f1f443bb24b45672143a70",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": " tập dữ liệu này cũng ảnh hưởng tới\nhiệu năng của mô hình.\nDựa trên tính chất của các tập dữ liệu, các thuật toán machine learning có thể phân loại\nthành hai nhóm chính làhọc không giám sát (unsupervised learning) và học có giám sát\n(supervised learning).\nSupervised learning là thuật toán dự đoán đầu ra của một hoặc nhiều dữ liệu mới dựa\ntrên các cặp (đầu vào, đầu ra) đã biết từ trước. Supervised learning là nhóm phổ biến nhất\ntrong các thuật toán machine learning.\nMột cách toán học, supervised ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ae025849736ee26eb2f87c9eedb0508a271a167278f4b21498f5356f119d3e0c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 79,
+    "text": "n machine learning.\nMột cách toán học, supervised learning là khi chúng ra có một tập hợp biến đầu vàoX =\n{x1, x2,..., xN} và một tập hợp đầu ra tương ứngY ={y1, y2,..., yN}, trong đóxi, yi là\ncác vector. Các cặp dữ liệu biết trước(xi, yi)∈X×Y tạo nên tập huấn luyện. Từ tập huấn\nluyện này, chúng ta cần tạo ra một hàm số ánh xạ mỗi phần tử từ tậpX sang một phần tử\n(xấp xỉ) tương ứng của tậpY:\nyi≈f(xi), ∀i = 1, 2,...,N\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 67,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "58faf9315d94eb2cea55126100d1efe648d8c749cf432b6c60ec38f831a95bc1",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 68\nMục đích là xấp xỉ hàm sốf thật tốt để khi có một dữ liệux mới, chúng ta có thể tính được\nnhãn tương ứng của nóy =f(x).\nNgược lại, trongunsupervised learning, chúng ta không biết được kết quả đầu ra mà chỉ\nbiết các vector đặc trưng của dữ liệu đầu vào. Các thuật toán unsupervised learning sẽ dựa\nvào cấu trúc của dữ liệu để thực hiện một công việc nào đó, ví dụ như phân nhóm hoặcgiảm\nsố chiều của dữ liệu(dimentionality reduction). Một cách toán học, unsupervised ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "1e8bc1c3a219097c6746357382269f166af0479bcb3c390f16ecab905f706aa9",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "ality reduction). Một cách toán học, unsupervised learning\nlà khi chúng ta chỉ có dữ liệu đầu vàoX mà không biết đầu raY tương ứng.\nKhông giống như trong supervised learning, chúng ta không biết câu trả lời chính xác cho\nmỗi dữ liệu đầu vào trong unsupervised learning. Giống như khi ta học, ta chỉ được đưa cho\nmột chữ cái mà không nói đó là chữ A hay chữ B. Cụm từkhông giám sát, haykhông ai chỉ\nbảo (unsupervised) được đặt tên theo nghĩa này.\nTừ góc độ xác suất thống kê, unsupervised learning trả",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f89225cfa257294ec762d2dd6fb168b9ecdc2978938a9abd3bdc22552d8d6537",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "óc độ xác suất thống kê, unsupervised learning trải nghiệm qua rất nhiều ví dụ (các\nđiểm dữ liệu)x và cố gắng học phân phối xác suấtp(x), hoặc các tính chất của phân phối\ncủa dữ liệu một cách trực tiếp hoặc gián tiếp. Trong khi đó, supervised learning quan sát các\nví dụx và các kết quả tương ứngy, sau đó cố gắng học cách dự đoány từ x thông qua việc\nđánh giá xác suất có điều kiệnp(y|x). Xác suất này có thể diễn đạt bằng lời là biết rằng\nmột điểm dữ liệu có vector đặc trưng làx, xác suất để đầu r",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ab1cb65c8139063da0a781ab356a198a818c18dada9fbb8725ac9c63af6aea80",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "dữ liệu có vector đặc trưng làx, xác suất để đầu ra của nó bằngy là bao nhiêu.\nRanh giới giữa unsupervised learning và supervised learning đôi khi là không rõ ràng. Thông\nthường, người ta thường coi các bài classification, regression là supervised learning, các bài\nclustering haydensity estimation (ước lượng một phân phối) là unsupervised learning.\nCó những bài toán mà dữ liệu được dùng để huấn luyện bao gồm cả những dữ liệu có nhãn\nvà chưa được gán nhãn. Các bài toán khi chúng ta có một lượng l",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c63df751321134196bb0c75cfbce1284b5a146cacc2a3ff442818770ebed81f0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "gán nhãn. Các bài toán khi chúng ta có một lượng lớn dữ liệuX nhưng chỉ\nmột phần trong chúng được gán nhãn được gọi làhọc bán giám sát, haysemi-supervised\nlearning. Những bài toán thuộc nhóm này nằm giữa hai nhóm được nêu bên trên.\nMột ví dụ điển hình của nhóm này là chỉ có một phần ảnh hoặc văn bản được gán nhãn\n(ví dụ bức ảnh về người, động vật hoặc các văn bản khoa học, chính trị) và phần lớn các\nbức ảnh/văn bản khác chưa được gán nhãn được thu thập từ internet. Thực tế cho thấy rất\nnhiều các",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a67fb4114b8bcfabd67b90ecad8b1a74c342fc9bfbf0c92e25053b8470b58de5",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "u thập từ internet. Thực tế cho thấy rất\nnhiều các bài toán machine learning thuộc vào nhóm này vì việc thu thập dữ liệu có nhãn\ntốn rất nhiều thời gian và có chi phí cao. Rất nhiều loại dữ liệu, ví dụ như ảnh y học, thậm\nchí cần phải có chuyên gia mới gán nhãn được. Ngược lại, dữ liệu chưa có nhãn có thể được\nthu thập với chi phí thấp từ internet.\nCó những thuật toán machine learning không luôn trải nghiệm trên một tập dữ liệu cố định.\nVí dụ, học củng cố (reinforcement learning) trải nghiệm trự",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "15f342c342c2095b126a11b92d0f7aa89b9be64df6e3a2f9436af35a0f2223bb",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "c củng cố (reinforcement learning) trải nghiệm trực tiếp với môi trường xun\nquanh, liên tục nhận phản hồi từ môi trường để tự cải thiện hành vi của hệ thống trong các\nmôi trường mới. Các ví dụ điển hình của reinforcement learning là việc huấn luyện cho xe tự\nlái dựa vào ảnh nhận từ camera và điều khiển tay lái cũng như tốc độc của xe. Reinforcement\nlearning hiện nay chủ yếu được áp dụng vào các trò chơi, khi mà máy tính có thể mô phỏng\nđược các trạng thái của môi trường và huấn luyện thuật toán ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2dcfd5d862233a5730774c8c64da39e99bd2a44475e9af6f8f678b3c3ecec3ec",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 80,
+    "text": "rạng thái của môi trường và huấn luyện thuật toán thông qua rất nhiều vòng lặp.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 68,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a06c77ecdc86be7c7e8ed72a88bc7270267d597f1b83ff279b1ed3304b9a6d0f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": "69 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nVí dụ 1:AlphaGo gần đây nổi tiếng với việc chơi cờ vây thắng cả con người (https://goo.\ngl/PzKcvP ). Cờ vây được xem là có độ phức tạp cực kỳ cao2 với tổng số nước đi là xấp\nxỉ 10761, so với cờ vua là10120 và tổng số nguyên tử trong toàn vũ trụ là khoảng1080!! Hệ\nthống phải chọn ra mộtđường đi nước bướctối ưu trong số hàng nhiều tỉ tỉ lựa chọn, và\ntất nhiên, việc thử tất cả các lựa chọn là không khả thi. Về cơ bản, AlphaGo bao gồm các\nthuật toán thuộc cả supervi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "5ee4cc273e78388a1c5589f8dbf1cd53ec52967f7634e43d16c8aa7accc0df91",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": "n, AlphaGo bao gồm các\nthuật toán thuộc cả supervised learning và reinforcement learning. Trong phần supervised\nlearning, dữ liệu từ các ván cờ do con người chơi với nhau được đưa vào để huấn luyện. Tuy\nnhiên, mục đích cuối cùng của AlphaGo không phải là chơi như con người mà phải thậm\nchí thắng cả con người. Vì vậy, sau khihọc xong các ván cờ của con người, AlphaGo tự chơi\nvới chính nó với hàng triệu ván chơi để tìm ra các nước đi mới tối ưu hơn. Thuật toán trong\nphần tự chơi này được xếp vào l",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8f1e1ee3f460391d69288782a7b2dc159a02c7c0d4ff086c21f6ca8b52507cd3",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": ". Thuật toán trong\nphần tự chơi này được xếp vào loại reinforcement learning.\nGần đây, Google DeepMind đã tiến thêm một bước đáng kể với AlphaGo Zero. Hệ thống\nnày thậm chí không cần học từ các ván cờ của con người. Nó có thể tự chơi với chính mình\nđể tìm ra các chiến thuật tối ưu. Sau 40 ngày được huấn luyện, nó đã thắng tất cả các con\nngười và hệ thống khác, bao gồm AlphaGo3.\nVí dụ 2:Huấn luyện cho máy tính chơi game Mario4. Đây là một chương trình thú vị dạy\nmáy tính chơi game Mario. Game này",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4ac39cdbe6075d767a1e4b7ad426682b1ce813d1de27e0ca613aa66e23434d89",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": "rình thú vị dạy\nmáy tính chơi game Mario. Game này đơn giản hơn cờ vây vì tại một thời điểm, người chơi\nchỉ phải bấm một số lượng nhỏ các nút (di chuyển, nhảy, bắn đạn) hoặc không cần bấm nút\nnào. Đồng thời, phản ứng của máy cũng đơn giản hơn và lặp lại ở mỗi lần chơi (tại thời\nđiểm cụ thể sẽ xuất hiện một chướng ngại vật cố định ở một vị trí cố định). Đầu vào của\nthuật toán là sơ đồ của màn hình tại thời điểm hiện tại, nhiệm vụ của thuật toán là với đầu\nvào đó, tổ hợp phím nào nên được bấm. Việ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9b78b6dda7812d8076dfd90d76a23a7c3c434579100bfe1ef10589e63f396d1a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": " với đầu\nvào đó, tổ hợp phím nào nên được bấm. Việc huấn luyện này được dựa trên điểm số cho\nviệc di chuyển được bao xa trong thời gian bao lâu trong game, càng xa và càng nhanh thì\nđược điểm thưởng càng cao (điểm thưởng này không phải là điểm của trò chơi mà là điểm\ndo chính người lập trình tạo ra). Thông qua huấn luyện, thuật toán sẽ tìm ra một cách tối\nđa số điểm trên, qua đó đạt được mục đích cuối cùng là cứu công chúa.\nReinforcement learning là một lĩnh vực thú vị trong machine learning. Rấ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "45070b969ca31f7ebba11bbb1119e518666d8d6d3cd6ef28f30063228cb94cc7",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": " là một lĩnh vực thú vị trong machine learning. Rất tiếc, reinforcement\nlearning nằm ngoài phạm vi của cuốn sách này.\n5.4 Hàm mất mát và tham số mô hình\nMỗi mô hình machine learning được mô tả bởicác tham số mô hình(model parameters).\nCông việc của một thuật toán machine learning là đi tìm các tham số mô hình phù hợp với\nmỗi bài toán. Việc đi tìm các tham số mô hình có liên quan mật thiết đến các phép đánh\ngiá. Mục đích của chúng ta là đi tìm các tham số mô hình sao cho các phép đánh giá cho\nkết",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c4973c5326b250295fa127ef1f1d73b057b124e1814bea031d242cd3f2a0414e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": " tham số mô hình sao cho các phép đánh giá cho\nkết quả tốt nhất. Trong bài toán classification, kết quả tốt có thể được hiểu là ít điểm dữ\nliệu bị phân lớp sai nhất. Trong bài toán regression, kết quả tốt là khi sự sai lệch giữa đầu\nra dự đoán và đầu ra thực sự là ít nhất.\n2 Google DeepMind’s AlphaGo: How it works(https://goo.gl/nDNcCy ).\n3 AlphaGo Zero: Learning from scratch(https://goo.gl/xtDjoF ).\n4 MarI/O - Machine Learning for Video Games(https://goo.gl/QekkRz )\nMachine Learning cơ bản http",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "cb34c5575ccd0d3a32770e213a6cc724f88b55548fc1be9e637a878d95d27ddd",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 81,
+    "text": "tps://goo.gl/QekkRz )\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 69,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "413982251879bd4f337e5459425fb2c5c1c7b9edb6a539e611dd119892980baa",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 82,
+    "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 70\nQuan hệ giữa một phép đánh giá và các tham số mô hình thường được mô tả thông qua\nmột hàm số được gọi làhàm mất mát(loss function, haycost function). Hàm mất mát này\nthường có giá trị nhỏ khi phép đánh giá cho kết quả tốt và ngược lại. Việc đi tìm các tham\nsố mô hình sao cho phép đánh giá trả về kết quả tốt tương đương với việc tối thiểu hàm\nmất mát. Như vậy, việc xây dựng một mô hình machine learning chính là việc đi giải một\nbài toán tối ưu. Quá trình đó có th",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 70,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "22d0d72fc89e133db85b2c7345e530fc3db43d51741def283a6a90a44d193f87",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 82,
+    "text": "ệc đi giải một\nbài toán tối ưu. Quá trình đó có thể được coi là quá trìnhlearning của machine.\nTập hợp các tham số mô hình thường được ký hiệu bằngθ, hàm mất mát của mô hình\nthường được ký hiệu làL(θ) hoặcJ(θ). Bài toán tối thiểu hàm mất mát để tìm tham số mô\nhình thường được viết dưới dạng:\nθ∗ = argmin\nθ\nL(θ) (5.1)\nký hiệu argmin\nθ\nL(θ) được hiểu là giá trị củaθ để hàm sốL(θ) đạt giá trị nhỏ nhất. Khi sử\ndụng argmin, chúng ta phải chỉ rõ nó được thực hiện theo các biến số nào bằng cách ghi các\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 70,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "257f66ecfdee43520579f7a5f5c030813dae3853c7e4b23f3f56efd04dd6f461",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 82,
+    "text": " thực hiện theo các biến số nào bằng cách ghi các\nbiến số ở dướimin (ở đây làθ). Nếu hàm số chỉ có một biến số, ta có thể bỏ qua biến số đó\ndưới min. Tuy nhiên, biến số nên được ghi rõ ràng để giảm thiểu sự nhầm lẫn.argmax cũng\nđược sử dụng một cách tương tự khi ta cần tìm giá trị của các biến số để một hàm số đạt\ngiá trị lớn nhất.\nMột hàm sốL(θ) bất kỳ có thể có rất nhiều giá trị củaθ để nó đạt giá trị nhỏ nhất, hoặc\ncũng có thể nó không chặn dưới. Thậm chí, việc tìm giá trị nhỏ nhất của một hà",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 70,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "350b7abbf341139544893e38d224fa2076ffaaf10a1447e95cd0432a648aa6a6",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 82,
+    "text": "ới. Thậm chí, việc tìm giá trị nhỏ nhất của một hàm số đôi\nkhi là không khả thi. Trong machine learning cũng như nhiều bài toán tối ưu thực tế, việc\nchỉ cần tìm ra một bộ tham sốθ làm cho hàm mất mát đạt giá trị nhỏ nhất, hoặc thậm chí\nđạt một giá trị cực tiểu5, thường mang lại các kết quả khả quan.\nĐể hiểu rõ bản chất của các thuật toán machine learning, việc nắm vững các kỹ thuật tối\nưu cơ bản là rất quan trọng. Cuốn sách này có nhiều chương cung cấp các kiến thức cần\nthiết cho tối ưu, bao gồm",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 70,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "859ece51f977ed982c21e1343a475acfb3a0ae00749eab7413b410d0c4738c20",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 82,
+    "text": "ng cấp các kiến thức cần\nthiết cho tối ưu, bao gồm tối ưu không ràng buộc (Chương 12) và tối ưu có ràng buộc (xem\nPhần VII).\nTrong các chương tiếp theo của cuốn sách này, chúng ta sẽ dần làm quen với các thành phần\ncơ bản của một hệ thống machine learning.\n5 Lưu ý rằng cực tiểu trong toán học không có nghĩa là nhỏ nhất.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "basic-concepts",
+      "chapter": 5,
+      "chapter_title": "Các khái niệm cơ bản",
+      "printed_page": 70,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9b1e1165beb174689c772543b5bdcb791f8e6bdc6a58538e3dbf770d994b3b2a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 83,
+    "text": "Chương 6\nGiới thiệu về feature engineering\n6.1 Giới thiệu\nMỗi điểm dữ liệu trong các bài toán machine learning thường được biểu diễn bằng một vector\nđược gọi làvector đặc trưng(feature vector)1. Hơn nữa, trong cùng một bài toán, các feature\nvector của tất cả các điểm thường có kích thước như nhau. Điều này là cần thiết vì các phép\ntoán trong mô hình (cộng, nhân ma trận, vector) yêu cầu đầu vào có cùng kích thước. Khi\nđó, toàn bộ dữ liệu có thể được lưu trong một ma trận mà mỗi hàng hoặc mỗi cột ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 71,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "82030ded92b28063713e1772ac67e1a9015be6579bbccbf3ebe1c5796782523a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 83,
+    "text": "ợc lưu trong một ma trận mà mỗi hàng hoặc mỗi cột là feature\nvector của một điểm dữ liệu. Tuy nhiên, trên thực tế, dữ liệu thường ở dạngthô (raw data)\nvới kích thước khác nhau. Hoặc thậm chí khi kích thước của các điểm là như nhau, việc lựa\nchọn, tính toán đặc trưng nào phù hợp cho mỗi bài toán là nhiệm vụ quan trọng trước tiên\ncần được giải quyết.\nVới các bài toánthị giác máy tính(computer vision), các bức ảnh thường là các ma trận\nhoặc tensor với kích thước khác nhau. Trong bài toán nhận dạng ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 71,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "52c79786b59b66b0c0a6ce6bd20e244f5c79ca33cd7c8c331a527184752dc376",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 83,
+    "text": "ới kích thước khác nhau. Trong bài toán nhận dạng vật thể trong ảnh, đôi khi\nta cần làm thêm một bước nữa làxác định vị trí vật thể(object detection), tức là tìm các\nkhung chứa vật thể cần dự đoán. Ví dụ, trong bài toán nhận dạng khuôn mặt, ta cần tìm\nđược vị trí các khuôn mặt trong ảnh và cắt ra các khuôn mặt đó trước khi làm các bước\ntiếp theo. Ngay cả khi đã xác định được các khung chứa các khuôn mặt, ta vẫn phải làm\nrất nhiều việc vì hình ảnh của khuôn mặt còn phụ thuộc vào góc chụp, ánh sán",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 71,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "10ed417fa8a3a6b95e07cb679e78e937aff427075fd6f7dd35c540a4f3678fac",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 83,
+    "text": " của khuôn mặt còn phụ thuộc vào góc chụp, ánh sáng, v.v. và rất\nnhiều yếu tố khác nữa.\nCác bài toánxử lý ngôn ngữ tự nhiên(natural language processing–NLP) cũng có khó khăn\ntương tự khi độ dài của các văn bản là khác nhau, thậm chí có những từ rất hiếm gặp hoặc\nkhông có trong từ điển. Cũng có khi thêm một vài từ vào văn bản mà nội dung của văn bản\nkhông đổi hoặc hoàn toàn mang nghĩa ngược lại. Hoặc cùng là một câu nói nhưng tốc độ,\nâm giọng của mỗi người là khác nhau, tại các thời điểm khác nha",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 71,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "6611a252b02563225988ef3f350430e5f8ffc9f201dd2bb88e00c2e931c0db9b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 83,
+    "text": "mỗi người là khác nhau, tại các thời điểm khác nhau là khác nhau.\n1 Trong các hệ thống deep learning, một bức ảnh hai chiều có thể được trực tiếp đưa vào hệ thống mà không cần\nqua nhiều bước feature engineering. Cuốn sách này chỉ làm việc với các đặc trưng ở dạng vector cột.",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 71,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "13abf6467bc825751fcf2cd88c8a4ce4f42ec01338eac4b47f87e38f1ffc42ea",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 72\nKhi làm việc với các bài toán machine learning thực tế, nhìn chung chúng ta chỉ có được\ndữ liệu thô chưa qua chỉnh sửa, chọn lọc. Ngoài ra, chúng ta có thể phải tìm cách loại ra\nnhững dữ liệu nhiễu, và để đưa dữ liệu thô với kích thước, hay số chiều khác nhau về cùng\nmột chuẩn (cùng là các vector hoặc ma trận). Dữ liệu chuẩn mới này phải đảm bảo giữ được\nnhững thông tin đặc trưng cho dữ liệu thô ban đầu. Không những thế, tùy vào từng bài\ntoán, ta cầ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f146e8b636fad041bb85a16a5fabb35b3595c89dca3089077fe3f2db36d86e1c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": "đầu. Không những thế, tùy vào từng bài\ntoán, ta cần thiết kế những phép biến đổi để có những đặc trưng phù hợp. Quá trình quan\ntrọng này được gọi làtrích chọn đặc trưng(feature engineeringhay feature extraction).\nXin trích một câu nói (xin không dịch) của Andrew Ng2:\nComing up with features is difficult, time-consuming, requires expert knowledge. “Applied\nmachine learning” is basically feature engineering.\nĐể có cái nhìn tổng quan, trong mục tiếp theo, bước feature engineering này sẽ được đặt\ntr",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9de404eff426b754289c5837b0597f0db8125ca4578791a43617ce4c164a3573",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": " theo, bước feature engineering này sẽ được đặt\ntrong một bức tranh lớn hơn.\n6.2 Mô hình chung cho các bài toán Machine Learning\nPhần lớn các mô hình machine learning có thể được minh hoạ trong Hình 6.1. Có hai bước\n(phase) lớn trong mỗi bài toán machine learning là bước huấn luyện (training phase) và bước\nkiểm thử (test phase). Bước huấn luyện sẽ chỉ dùng dữ liệu huấn luyện, bước kiểm thử sẽ\nchỉ dùng dữ liệu trong tập kiểm thử3.\n6.2.1 Training phase\nCó hai khối có nền màu lục cần được thiết kế:",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f44336ba47537a9d7c25b4dc7302d34c9101f58df5e5886e1a03b8098534da33",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": "hase\nCó hai khối có nền màu lục cần được thiết kế:\nKhối thứ nhất,Feature Extraction, có nhiệm vụ tạo ra một vector đặc trưng cho mỗi\nđiểm dữ liệu đầu vào. Vector đặc trưng này thường có kích thước như nhau, bất kể dữ liệu\nđầu vào có kích thước như thế nào.\nĐầu vào của khối Feature Extraction có thể là các yếu tố sau:\n• Dữ liệu thô ban đầu(raw training input). Dữ liệu thô bao gồm tất cả các thông tin ta\nbiết về dữ liệu. Ví dụ: dữ liệu thô của một ảnh là giá trị của từng pixel; của một văn\nbản là ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "fb1e99ac525fbe6ddea8acd81d967420639fcbac4ba63d30806d0124b72074c7",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": "ảnh là giá trị của từng pixel; của một văn\nbản là từng từ, từng câu; của một file âm thanh là một đoạn tín hiệu; với bài toán dự\nbáo thời tiết, dữ liệu thô là thông tin về hướng gió, nhiệt độ, độ ẩm,v.v.. Dữ liệu thô này\nthường không ở dạng vector và không có số chiều như nhau. Thậm chí có thể có số chiều\nnhư nhau nhưng số chiều quá lớn, chẳng hạn một bức ảnh màu1000× 1000 pixel sẽ có\nsố pixel là đã là3× 106 (ảnh màu thường có ba channel: red, green, blue–RGB). Đây là\nmột con số quá lớn, không l",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "5938a0f879dc021cadebb7ea92892053718673bc31cea8103caccd38b52ad2ef",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 84,
+    "text": "een, blue–RGB). Đây là\nmột con số quá lớn, không lợi cho lưu trữ và tính toán.\n2 Feature Engineering– Wikipedia(https://goo.gl/v4e21T )\n3 Trước khi đánh giá một mô hình trên tập kiểm thử, ta cần đảm bảo rằng mô hình đó đã làm việc tốt trên tập\nhuấn luyện.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 72,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c58db44ae1879aa12548e729355bc2e5522628d4766af642d2bad55a7dbdf702",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 85,
+    "text": "73 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nTRAINING PHASE\nRaw training\ndata (input)\nTraining output\n(ytrain)\nPrior knowledge\nabout data\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtrain)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTEST PHASE\nRaw test\ndata (input)\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtest)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTest output\n(ytest)\nHình 6.1: Mô hình thường gặp trong các bài toán machine learning",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 73,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "bb87be02b219a461c1aa7eddf55448a5f8a88b7b3380cadfe11f89185e01acd1",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 85,
+    "text": "ình thường gặp trong các bài toán machine learning.\n• output của training set. Trong các bài toán unsupervised learning, ta không biết\noutput nên hiển nhiên sẽ không có giá trị này. Trong các bài toán supervised learning, có\nkhi dữ liệu này cũng không được sử dụng. Ví dụ, nếuraw input đã có cùng số chiều rồi\nnhưng số chiều quá lớn, ta muốn giảm số chiều của nó thì cách đơn giản nhất làchiếu\nvector đó xuống một không gian có số chiều nhỏ hơn bằng cách lấy một ma trận ngẫu\nnhiên nhân với nó vào bê",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 73,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0b95cead814b705e0c73f860878c357d76bdfce215b285b307a9a6b5b63b6837",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 85,
+    "text": "cách lấy một ma trận ngẫu\nnhiên nhân với nó vào bên trái. Ma trận này thường là ma trậnbéo, tức có số hàng ít\nhơn số cột, để đảm bảo số chiều thu được nhỏ hơn số chiều ban đầu. Việc làm này mặc\ndù làm mất đi thông tin, trong nhiều trường hợp vẫn mang lại hiệu quả vì đã giảm được\nlượng tính toán ở phần sau. Đôi khima trận chiếukhông phải là ngẫu nhiên mà có thể\nđược học dựa trên toàn bộ dữ liệu thô ban đầu. Trong nhiều trường hợp khác, dữ liệu\noutput của tập huấn luyện cũng được sử dụng để tạo ra",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 73,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9b9453eb41e3f178d13f60cca11835dcab3ea64bdc44ffc8610d619a4a5ba5c6",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 85,
+    "text": "put của tập huấn luyện cũng được sử dụng để tạo ra bộ trích chọn đặc trưng. Trong\nbài toán classification, việc giữ lại nhiều thông tin không quan trọng bằng việc giữ lại các\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 73,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "cbcc8203c633b29cf977afcc38567ef8a5188c6a66c0cddab99a9d70a02bee8e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 74\nthông tin có ích cho bài toán. Ví dụ, giả sử dữ liệu thô là các hình vuông và hình tam\ngiác có màu đỏ và xanh. Trong bài toán phân loại đa giác, nếu các nhãn làtam giác và\nvuông, ta không quan tâm tới màu sắc mà chỉ quan tâm tới số cạnh của đa giác. Ngược\nlại, trong bài toán phân loại màu, các nhãn làxanh vàđỏ, ta không quan tâm tới số cạnh\nmà chỉ quan tâm đến màu sắc.\n• Prior knowledge about data: Các thông tin khác đã biết về loại dữ liệu (ngoài n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2698f1b001c6559459101066eb94a50ad3544ef1dff99d8ffdd81f9850b766e7",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "ác thông tin khác đã biết về loại dữ liệu (ngoài những\nthông tin về raw input và output).\nSau khi các tham số mô hình của bộ feature extraction được thiết kế, dữ liệu thô ban đầu\nđược đưa qua và tạo ra các vector đặc trưng tương ứng được gọi làextracted feature. Những\nextracted feature này sẽ được đưa vào huấn luyện các thuật toán chính như classification,\nregression, clustering, v.v. trong khối màu lục phía sau.\nTrong một số thuật toán cao cấp hơn, việc xây dựng bộ trích chọn đặc trưng và các\nt",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "3930dd5ea05afd9c7cdd2a33fec56df829bd73b287c3d0409c11d5f73c8de0ab",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "ơn, việc xây dựng bộ trích chọn đặc trưng và các\nthuật toán chính (classification, clustering, v.v.) có thể được thực hiện cùng lúc với\nnhau thay vì từng bước như trên. Các mô hình đó có tên gọi chung là end-to-end. Với\nsự phát triển của deep learning trong những năm gần đây, người ta cho rằng các hệ\nthống end-to-end (từ đầu đến cuối) mang lại kết quả tốt hơn nhờ vào việc hai khối\nphía trên được huấn luyện cùng nhau, bổ trợ lẫn nhau cùng hướng tới mục đích cuối\ncùng. Thực tế cho thấy, các phương",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0cf695f0df8b43ce791c8b037fbbf0be9f34081897ee3bb1b25ba855002171bd",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "i mục đích cuối\ncùng. Thực tế cho thấy, các phương pháp state-of-the-art (các phương pháp hiệu quả\nnhất) thường là các mô hình end-to-end.\n6.2.2 Testing phase\nKhi có dữ liệu thô mới, ta sử dụng bộ trích chọn đặc trưng đã tìm được ở trên để tạo ra\nvector đặc trưng ứng với dữ liệu thô đó. Vector đặc trưng này được đưa vào thuật toán chính\nđã tìm được để đưa ra quyết định.\n6.3 Một số ví dụ về Feature Engineering\n6.3.1 Trực tiếp lấy dữ liệu thô\nXét một bài toán phân loại các bức ảnh xám mà mỗi bức ả",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "e3bb464f289aced747f80e6556da804a31add69d54242487fdf8b519518fa15b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "ột bài toán phân loại các bức ảnh xám mà mỗi bức ảnh đã có kích thước cố định là\nm×n pixel. Cách đơn giản nhất để tạo ra vector đặc trưng cho bức ảnh này làkéo dàima\ntrận các pixel thành một vector cómn phần tử, hay đặc trưng. Khi đó, giá trị mỗi đặc trưng\nsẽ là một giá trị của một pixel trong bức ảnh ban đầu, thứ tự không quan trọng. Kỹ thuật\nnày còn được gọi làvector hoá (vectorization).\nViệc làm đơn giản này đã làm mấtthông tin về không gian(spatial information) giữa các\nđiểm ảnh vì các pixel",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2b191e7332fcc28cd74b74698fcda33ea143520980a4b898d1ed9be859cb0c6c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 86,
+    "text": "patial information) giữa các\nđiểm ảnh vì các pixel gần nhau theo phương ngang trong bức ảnh ban đầu có thể không còn\ngần nhau trong vector đặc trưng mới nữa. Tuy nhiên, trong nhiều trường hợp, kỹ thuật này\nvẫn mang lại kết quả khả quan.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 74,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8026bce5c3d9bb5031a6ad078428f58b8881586dd8547ae5d990253deb227e7c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": "75 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\n6.3.2 Lựa chọn đặc trưng\nGiả sử rằng các điểm dữ liệu có số đặc trưng khác nhau (do kích thước dữ liệu khác nhau\nhay do một số đặc trưng mà điểm dữ liệu này có nhưng điểm dữ liệu kia lại không thu thập\nđược), và số lượng đặc trưng là cực lớn. Chúng ta cầnchọn ra một số lượng nhỏ hơn các đặc\ntrưng phù hợp với bài toán.\n6.3.3 Giảm chiều dữ liệu\nMột phương pháp khác thường được dùng làlàm giảm số chiều dữ liệu (dimensionality\nreduction) để giảm bộ nhớ ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c73a61b0107237bba03e40cfb5b7c2c9a0bd8bc1d399924bafb77864bed529ec",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": "dữ liệu (dimensionality\nreduction) để giảm bộ nhớ và khối lượng tính toán. Việc giảm số chiều này có thể được\nthực hiện bằng nhiều cách, trong đóchiếu ngẫu nhiên(random projection) là cách đơn giản\nnhất. Trong phương pháp này, mộtma trận chiếu(projection matrix) ngẫu nhiên được chọn,\nthường là một ma trận béo–số cột nhiều hơn số hàng, để nhân vào bên trái của từng vector\nđặc trưng ban đầu để được các vector đặc trưng có số chiều thấp hơn. Cụ thể, giả sử vector\nđặc trưng ban đầu làx0∈ RD, nếu ta ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "68820d297f5eabd2aab3814cf75c387ff5f47d58a0b722d3e6ebe454251537fe",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": " giả sử vector\nđặc trưng ban đầu làx0∈ RD, nếu ta chọn một ma trận chiếuP∈ Rd×D vớid≪D, vector\nmới x1 = Px0∈ Rd có số chiều nhỏ hơn số chiều của vectorx0 ban đầu.\nViệc chọn một ma trận chiếu ngẫu nhiên đôi khi mang lại kết quả tệ không mong muốn vì\nthông tin có thể bị mất đi quá nhiều. Một phương pháp được sử dụng nhiều để tối thiểu lượng\nthông tin mất đi có tên là principal component analysis sẽ được trình bày trong Chương 21.\nLưu ý:Feature engineering không nhất thiết phải làm giảm số chiều dữ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "7ba5cb4caa224800378de800f06a887dbd73f1f7293e83ba84656d19bc474671",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": "neering không nhất thiết phải làm giảm số chiều dữ liệu, đôi khi vector\nđặc trưng có thể có có kích thước lớn hơn dữ liệu thô ban đầu.\n6.3.4 Bag of words\nChúng ta hẳn đã tự đặt ra các câu hỏi: với một văn bản, vector đặc trưng sẽ có dạng như\nthế nào? Làm sao đưa các từ, các câu, đoạn văn ở dạngtext trong các văn bản về một vector\nmà mỗi phần tử là một số?\nCó một kỹ thuật rất phổ biến trong xử lý văn bản có tên làtúi đựng từ(bag of words–BoW).\nBắt đầu bằng ví dụ phân loại tin nhắn rác. Ta thấy rằ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "79814107eecefd7b195fef96d3c588ff9b081813c493c661fdf1a9147da74dc6",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": " đầu bằng ví dụ phân loại tin nhắn rác. Ta thấy rằng nếu một tin có chứa các từkhuyến\nmại, giảm giá, trúng thưởng, miễn phí, quà tặng, tri ân, v.v., nhiều khả năng đó là một tin\nnhắn rác. Từ đó, phương pháp đầu tiên có thể nghĩ tới làđếm xem trong tin đó có bao nhiêu\ntừ thuộc vào các từ trên, nếu số lượng này nhiều hơn một ngưỡng nào đó thì ta quyết định\nđó là tin rác. (Tất nhiên bài toán thực tế phức tạp hơn nhiều khi các từ có thể được viết\ndưới dạng không dấu, hoặc bị cố tình viết sai chính t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9389f52341662aadbcddff2194004c7171f83d33a9c8295b61059344c4a20f5b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 87,
+    "text": "i dạng không dấu, hoặc bị cố tình viết sai chính tả, hoặc dùng ngôn ngữ teen). Với các\nloại văn bản khác nhau, lượng từ liên quan tới từng chủ đề cũng khác nhau. Từ đó có thể\ndựa vào số lượng các từ trong từng loại để tạo các vector đặc trưng cho từng văn bản.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 75,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "868dacf7d00ed5f797f16c35345f4465ba03702e9731b87fa2e0cf93c3f3895b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 88,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 76\nXin lấy một ví dụ về hai văn bản đơn giản sau đây4:\n(1) \"John likes to watch movies. Mary likes movies too.\"\nvà\n(2) \"John also likes to watch football games.\"\nDựatrên haivăn bảnnày,ta códanhsáchcác từđượcsử dụng,được gọi là từ điển(dictionary\nhoặc codebook) với mườitừ như sau:\n[\"John\", \"likes\", \"to\", \"watch\", \"movies\", \"also\", \"football\", \"games\", \"Mary\", \"too\"]\nVới mỗi văn bản, ta sẽ tạo ra một vector đặc trưng có số chiều bằng 10, mỗi phần tử đại\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 76,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "bf3bd2f5f2371487387944717cbc8775eacc9bcdac844c32594cdf01cb11d348",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 88,
+    "text": "or đặc trưng có số chiều bằng 10, mỗi phần tử đại\ndiện cho số từ tương ứng xuất hiện trong văn bản đó. Với hai văn bản trên, ta sẽ có hai\nvector đặc trưng\n(1) [1, 2, 1, 1, 2, 0, 0, 0, 1, 1]\n(2) [1, 1, 1, 1, 0, 1, 1, 1, 0, 0]\nVăn bản (1) có 1 từ\"John\", 2 từ\"likes\", 0 từ\"also\", 0 từ\"football\", v.v. nên ta thu được\nvector tương ứng như trên.\nCó một vài điều cần lưu ý trong BoW:\n• Với những ứng dụng thực tế,từ điểncó nhiều hơn mười từ rất nhiều, có thể đến cả triệu,\nnhư vậy vector đặc trưng thu được",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 76,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "af1e12ba363ce419f4b9c05e9a56e58e447a2652dd168494236cda8fab518e24",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 88,
+    "text": "hể đến cả triệu,\nnhư vậy vector đặc trưng thu được sẽ rất dài. Một văn bản chỉ có một câu, và một tiểu\nthuyết nghìn trang đều được biểu diễn bằng các vector có kích thước như nhau.\n• Có rất nhiều từ trong từ điển không xuất hiện trong một văn bản. Như vậy các vector\nđặc trưng thu được thường có rất nhiều phần tử bằng không. Các vector có nhiều phần\ntử bằng không được gọi làvector thưa(sparse vector). Để việc lưu trữ được hiệu quả hơn,\nta không lưu cả vector đó mà chỉ lưuvị trí của các phần tử kh",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 76,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f30192839f60e6a445d6019c24a1248341e78f43337385404d5308b367e364ba",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 88,
+    "text": "u cả vector đó mà chỉ lưuvị trí của các phần tử khác 0 vàgiá trị tương ứng.\nChú ý rằng nếu có hơn một nửa số phần tử khác không, việc làm này lại phản tác dụng.\nTuy nhiên, trường hợp này ít xảy ra vì hiếm có văn bản nào lại chứa tới một nửa từ điển.\n• Ta xử lý các từ hiếm gặp không nằm trong từ điển như thế nào? Một kỹ thuật thường\nđược dùng là thêm phần tử<Unknown> vào trong từ điển. Mọi từ không có trong từ điển\nđều được coi là<Unknown>. Lúc này, kích thước của vector đặc trưng sẽ tăng lên một",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 76,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "47444aa9314453b51f0eb232bd3287cf195aeae0401128f2bc60107d9c24b27c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 88,
+    "text": "y, kích thước của vector đặc trưng sẽ tăng lên một.\n• Tuy nhiên, những từ hiếm đôi khi lại mang những thông tin quan trọng nhất mà chỉ loại\nvăn bản đó có. Đây là một nhược điểm của BoW. Có một phương pháp cải tiến giúp\n4 Bag of words–Wikipedia(https://goo.gl/rBtZqx )\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 76,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "e6177b7b665023ab153e034ae3ed0dcaa70a41d8b8caa75443557a54e08fbeca",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "77 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nkhắc phục nhược điểm này có tên làterm frequency-inverse document frequency(TF-\nIDF) [SWY75] dùng để xác định tầm quan trọng của một từ trong một văn bản dựa trên\ntoàn bộ văn bản trong cơ sở dữ liệu5.\n• Nhược điểm lớn nhất của BoW là nó không mang thông tin về thứ tự của các từ, cũng\nnhư sự liên kết giữa các câu, các đoạn văn trong văn bản. Thứ tự của các từ trong văn\nbản thường mang thông tin quan trọng. Ví dụ, ba câu sau đây: “Em yêu anh không?”,\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f0a92bdfc4eae46801391172dbc2e97be96c10007687a1b504fe0b2c9bcce4bc",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "rọng. Ví dụ, ba câu sau đây: “Em yêu anh không?”,\n“Em không yêu anh”, và “Không, (nhưng) anh yêu em” khi được trích chọn đặc trưng\nbằng BoW sẽ cho ra ba vector giống hệt nhau, mặc dù ý nghĩa khác hẳn nhau.\n6.3.5 Bag of words trong computer vision\nBag of words cũng được áp dụng trong computer vision cho các bức ảnh với cách định nghĩa\ntừ và từ điển khác. Xét các ví dụ sau:\nVí dụ 1:Có hai class ảnh, một class là ảnh các khu rừng, một class là ảnh các sa mạc. Giả\nsử ta biết rằng một bức ảnh chỉ thu",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "88d5b633694421f62e6374713695b06a3a446a3b0d431e53f134d4f0c09a686c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "ác sa mạc. Giả\nsử ta biết rằng một bức ảnh chỉ thuộc một trong hai loại này, việc phân loại một bức ảnh\nlà rừng hay sa mạc một cách trực quan nhất là dựa vào màu sắc. Màu xanh lục nhiều thì\nlà rừng, màu đỏ và vàng nhiều thì là sa mạc. Vậy chúng ta có thể có một mô hình đơn giản\nđể trích chọn đặc trưng như sau:\n• Với một bức ảnh, chuẩn bị một vectorx có số chiều bằng 3, đại diện cho ba màu xanh\nlục (x1), đỏ (x2), và vàng (x3).\n• Với mỗi điểm ảnh trong bức ảnh đó, xem nó gần với màu xanh, đỏ hay v",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "1b83d4ab0f4a5c5f79d2b3c8daf51113ebc86848cad2f9a3961afc5966c558f0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "rong bức ảnh đó, xem nó gần với màu xanh, đỏ hay vàng nhất dựa\ntrên giá trị của pixel đó. Nếu nó gần điểm xanh nhất, tăngx1 lên một; gần đỏ nhất, tăng\nx2 lên một; gần vàng nhất, tăngx3 lên một.\n• Sau khi xem xét tất cả các điểm ảnh, dù cho bức ảnh có kích thước thế nào, ta vẫn thu\nđược một vector có kích thước bằng ba, mỗi phần tử thể hiện việc có bao nhiêu pixel\ntrong bức ảnh có màu tương ứng. Vector cuối này còn được gọi làhistogram vectorcủa\nbức ảnh tương ứng với ba màu xanh, đỏ, vàng. Vector",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "917ea324dedddf367a3e62447423b8152a0edd31cbb4eb4e84854875e781cbac",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "ức ảnh tương ứng với ba màu xanh, đỏ, vàng. Vector này có thể coi là một đặc trưng\ntốt trong bài toán phân lớp ảnh rừng hay say mạc.\nVí dụ 2:Trên thực tế, các bài toán xử lý ảnh không đơn giản như Ví dụ 1 trên đây. Mắt\nngười thực ra nhạy với các đường nét, hình dáng hơn là màu sắc. Chúng ta có thể nhận biết\nđược một bức ảnh có cây hay không ngay cả khi bức ảnh đó không có màu. Vì vậy, xem xét\ngiá trị từng điểm ảnh một không mang lại kết quả khả quan vì lượng thông tin về đường\nnét bị mất quá nhi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "1aa5be281ae517f16bb85bd567f2f630fb8428c70c2b46e49e17b3e38158c4e0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "uan vì lượng thông tin về đường\nnét bị mất quá nhiều.\nCó một giải pháp là thay vì xem xét một điểm ảnh, ta xem xét một vùng hình chữ nhật nhỏ\ntrong ảnh, vùng này còn được gọi làpatch. Các patch này nên đủ lớn để có thể chứa được\ncác bộ phận có thể mô tả được vật thể trong ảnh. Ví dụ với mặt người, các patch nên đủ\nlớn để chứa được các phần của khuôn mặt như mắt, mũi, miệng như trong Hình 6.2. Tương\n5 5 Algorithms Every Web Developer Can Use and Understand, section 5(https://goo.gl/LJW3H1 ).\nMach",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "dec237ad58c5da0fbcb434ba6da101a9b5ab935836b62104deb9fc7bdf1ea90e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 89,
+    "text": "nderstand, section 5(https://goo.gl/LJW3H1 ).\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 77,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0bd07858baf824836ed2f2eae77d0f2cba4a74fcc5c5a95912441a01da0aa0bc",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 90,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 78\nHình 6.2: Bag of words cho ảnh chứa mặt người (Nguồn:Bag of visual words model: recognizing\nobject categories(https://goo.gl/EN2oSM ).\ntự thế, với ảnh là ô tô, các patch thu được có thể là bánh xe, khung xe, cửa xe, v.v. trên\nHình 6.3, hàng trên bên phải.\nMột câu hỏi được đặt ra là, trong xử lý văn bản, hai từ được coi là như nhau nếu nó được\nbiểu diễn bởi các ký tự giống nhau. Vậy trong xử lý ảnh, hai patch được coi là như nhau khi\nnào? Khi mọi pix",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 78,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "6a8d2608ff8a0f02d56d450fdc1a7c016d39643f040575fff2d9c17a81ca2a46",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 90,
+    "text": "ai patch được coi là như nhau khi\nnào? Khi mọi pixel trong hai patch có giá trị bằng nhau sao?\nCâu trả lời là không. Xác suất để hai patch giống hệt nhau từng pixel là rất thấp vì có thể\nmột phần của vật thể trong một patch bị lệch đi vài pixel so với phần đó trong patch kia;\nhoặc phần vật thể trong patch bị méo, hoặc có độ sáng khác nhau, mặc dù mắt người vẫn\nnhìn thấy hai patch đórất giống nhau. Vậy thì hai patch được coi là như nhau khi nào? Và\ntừ điển ở đây được định nghĩa như thế nào?\nCâu t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 78,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "efd4de994f5bee5ee89bf51db9a24ae215671140769a0ac7780b9ba7b40acde9",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 90,
+    "text": "à\ntừ điển ở đây được định nghĩa như thế nào?\nCâu trả lời ngắn cho câu hỏi này là hai patch được coi là gần giống nhau nếu khoảng cách\nEuclid giữa hai vector tạo bởi hai patch đó là nhỏ. Từ điển sẽ có số từ do ta tự chọn. Số từ\ntrong từ điển càng cao thì độ sai lệch càng ít, nhưng sẽ nặng về tính toán hơn.\nCụ thể hơn chúng ta có thể áp dụng một phương pháp phân nhóm đơn giản làK-means\nclustering (xem Chương 10). Với rất nhiều patch thu được, giả sử ta muốn xây dựng một từ\nđiển với chỉ khoảng 1000",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 78,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "98abd96da6d366d0dd0a6eb74d0420bcc3a82523d0b509fd9bf6437f34d7ba10",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 90,
+    "text": "ử ta muốn xây dựng một từ\nđiển với chỉ khoảng 1000từ. Ta có thể dùngK-means clustering để phân toàn bộ các patch\nthành 1000 nhóm (bag) khác nhau. Mỗi nhóm gồm các patch gần giống nhau và được mô\ntả bằng trung bình cộng của tất cả các patch trong nhóm đó (xem Hình 6.3 hàng dưới). Với\nmột ảnh bất kỳ, ta trích ra các patch từ ảnh đó, tìm xem mỗi patch gần với nhóm nào nhất\ntrong 1000 nhóm tìm được ở trên và quyết định patch này thuộc nhóm đó. Cuối cùng, ta\nsẽ thu được một vector đặc trưng có kích t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 78,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2115fa60f7618f8bef178b2f06a172b4d23609e48821cd7cbc2f623d9ce7bbce",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 90,
+    "text": "ùng, ta\nsẽ thu được một vector đặc trưng có kích thước bằng 1000 mà mỗi phần tử là số lượng các\npatch trong ảnh rơi vào nhóm tương ứng.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 78,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "b1d5a510ded93308db658715a2c4c73c5b4758adfd24132d6cc1c5481561bdbd",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 91,
+    "text": "79 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nHình 6.3: Bag of Words cho ảnh xe hơi (Nguồn: B. Leibe).\n6.4 Transfer Learning cho bài toán phân loại ảnh\n(Giả sử rằng bạn đọc đã có kiến thức nhất định về deep neural network.)\nNgoài BoW, các phương pháp thường được sử dụng để xây dựng feature vector cho ảnh là\nscale invariant feature transform–SIFT[Low99],speeded-up robust features–SURF[BTVG06],\nhistogram of oriented gradients–HOG[DT05], local binary pattern–LBP[Low99], v.v.. Các\nbộ phân lớp thườn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 79,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2e26ecaa979c02fbc75ec913813162447f594bf09d6014ea5c6ad4a11e6c368b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 91,
+    "text": "ry pattern–LBP[Low99], v.v.. Các\nbộ phân lớp thường được sử dụng là multi-class SVM (Chương 29), softmax regression\n(Chương 15), sparse coding và discriminative dictionary learning [WYG+09, VMM+16,\nVM17], random forest[LW+02], v.v..\nCác feature được tạo bởi các phương pháp nêu trên thường được gọi là cácfeature được tạo\nthủ công(hand-crafted feature) vì chúng chủ yếu dựa trên các quan sát về đặc tính riêng của\nảnh. Các phương pháp này cho kết quả khá ấn tượng trong một số trường hợp. Tuy nhiên,\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 79,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "240730571b0f59d6646d82f3b72dca5833d1740a3a4521b9c73ec62b74ea318f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 91,
+    "text": " khá ấn tượng trong một số trường hợp. Tuy nhiên,\nchúng vẫn còn nhiều hạn chế vì quá trình tìm ra các feature và các classifier phù hợp vẫn là\nriêng biệt.\nNhững năm gần đây, deep learning phát triển cực nhanh dựa trên lượng dữ liệu huấn luyện\nkhổng lồ và khả năng tính toán ngày càng được cải tiến của các máy tính. Các kết quả cho\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 79,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "dea9c190e88fcb4c6b97f2929a53eb9807b1b17dbff3f4dbd45f5f21b30d0b56",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 92,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 80\nInput Hidden 1 ...\nFully connected layer\nsoftmax or multi-class\nSVM\nFeature vector\nSecond to last Output\nHình 6.4: Mô hình chung cho các bài toán classification sử dụng Deep Learning. Layer cuối cùng\nthường là một Fully Connected Layer và thường là một Softmax Regression.\nbài toán phân loại ảnh ngày càng được nâng cao. Bộ cơ sở dữ liệu thường được dùng nhất là\nImageNet (https://www.image-net.org ) 1.2 triệu ảnh cho 1000 class khác nhau. Rất nhiều\ncá",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 80,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "5292add2b414215b557271fca5fa948a33ece371ed0f93be6e5db55d77aeb58e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 92,
+    "text": "2 triệu ảnh cho 1000 class khác nhau. Rất nhiều\ncác mô hình deep learning đã giành chiến thắng trong các cuộc thiImageNet large scale vi-\nsual recognition challenge–ILSVRC: AlexNet [KSH12], ZFNet [ZF14], GoogLeNet [SLJ+15],\nResNet [HZRS16], VGG [SZ14]. Nhìn chung, các mô hình này là các neural network với rất\nnhiều layer (xem Chương 16). Các layer phía trước thường là các convolutional layer. Layer\ncuối cùng là một fully connected layer và thường là một softmax regression (xem Hình 6.4).\nSố lượn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 80,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4228142ec084cae304cb9b8a65413952baa44d304c5335c2ae3d952732c93ef5",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 92,
+    "text": " là một softmax regression (xem Hình 6.4).\nSố lượng unit ở layer cuối cùng bằng với số lượng class (với ImageNet là 1000). Vì vậy out-\nput ở layer gần cuối cùng (second to last layer) có thể được coi là feature vector và softmax\nregression chính là classifier được sử dụng.\nChính nhờ việc các feature và classifier được huấn luyện cùng nhau thông qua việc tối ưu\ncác hệ số trong deep network khiến cho các mô hình này đạt kết quả tốt. Tuy nhiên, những\nmô hình này đều bao gồm rất nhiều layer và các t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 80,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ebc3c0bf318a3ffe782adfdb0217a4be5deb1621e2b81884475c561899682add",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 92,
+    "text": "g\nmô hình này đều bao gồm rất nhiều layer và các trọng số. Việc huấn luyện dựa trên 1.2M\nbức ảnh của ImageNet cũng tốn rất nhiều thời gian (2-3 tuần).\nVới các bài toán dựa trên tập dữ liệu khác với ít dữ liệu hơn, ta có thể không cần xây dựng\nlại network và huấn luyện nó từ đầu. Thay vào đó, ta có thể sử dụng các mô hình đã được\nhuấn luyện nêu trên, và sử dụng một vài kỹ thuật khác để giải quyết bài toán. Phương pháp\nsử dụng các mô hình có sẵn như thế này được gọi làtransfer learning.\nNhư đã đề ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 80,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "073eb7b9df195576bfe4cad8dec70d9b1c060e99e40f460bd65d1039660d6aa5",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 92,
+    "text": "ư thế này được gọi làtransfer learning.\nNhư đã đề cập, toàn bộ các layer trừ output layer có thể được coi là một feature extractor.\nDựa trên nhận xét rằng các bức ảnh đều có những đặc tính giống nhau nào đó, với cơ sở dữ\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 80,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "63e827cd2975a32dca5fa85ff71726bc394f02c71c435014fc25ef7c35283902",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "81 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nliệu khác, ta cũng có thể sử dụng phần feature extractor này để tạo ra các feature vector.\nSau đó, ta thay output layer cũng bằng một softmax regression, multi-class SVM (với số\nlượng unit phù hợp) hoặc các classifier phổ biến khác. Cách làm này có thể tăng độ chính\nxác phân lớp lên đáng kể so với việc sử dụng cáchand-crafted features.\nHướng tiếp cận thứ hai là sử dụng các mô hình đã được huấn luyện và cho cập nhật một vài\nlayer cuối dựa trên dữ liệ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "76952db98958cf7f119991fdea9709a331afb62e2b733026d60c745395c92add",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "và cho cập nhật một vài\nlayer cuối dựa trên dữ liệu mới thêm một vài vòng lặp. Kỹ thuật này được gọi làtinh chỉnh\n(fine-tuning). Việc này được dựa trên quan sát rằng những layer đầu trong deep network\nthường giúp trích xuất những đặc tính chung của ảnh (các cạnh, còn được gọi làlow-level\nfeature), các layer cuối thường mang những đặc trưng riêng của cơ sở dữ liệu (CSDL) (và\nđược gọi làhigh-level feature). Vì vậy, việc huấn luyện các layer cuối mang nhiều giá trị hơn.\nDựa trên kích thước và độ tư",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8271013fc06b71626927100aa86f7b1c7527d21da654d3d99aaf6850e84c3f37",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "ng nhiều giá trị hơn.\nDựa trên kích thước và độ tương quan giữa CSDL mới và CSDL gốc (chủ yếu là ImageNet),\ncó một vài quy tắc để huấn luyện network mới như sau6:\n• CSDL mới là nhỏ và tương tự như CSDL gốc.Vì CSDL mới nhỏ, việc tiếp tục huấn luyện\nmô hình có thể dễ dẫn đến hiện tượng overfitting (Chương 8). Cũng vì hai CSDL là tương\ntự nhau, ta dự đoán rằng các high-level feature của chúng là tương tự nhau. Vì vậy, ta\nkhông cần huấn luyện lại network mà chỉ cần huấn luyện một classifer dựa trên ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "84fb6500831ad03d5bd31f53eecdb084a4b7b7119b8abb5fb9d1301a99abd662",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "work mà chỉ cần huấn luyện một classifer dựa trên feature\nvector ở đầu ra ở layer gần cuối.\n• CSDL mới là lớn và tương tự như CSDL gốc.Vì CSDL này lớn, overfitting ít có khả năng\nxảy ra hơn, ta có thể huấn luyện mô hình thêm một một vài vòng lặp. Việc huấn luyện\ncó thể được thực hiện trên toàn bộ hoặc chỉ một vài layer cuối.\n• CSDL mới là nhỏ và rất khác với CSDL gốc.Vì CSDL này nhỏ, tốt hơn hết là dùng các\nclassifier đơn giản để tránh overfitting. Nếu muốn huấn luyện thêm, ta cũng chỉ nên thực\n",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "b7339935ca4711e8055435d26aba22aed724a50cb830ecfa47e962838edb8cfc",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "g. Nếu muốn huấn luyện thêm, ta cũng chỉ nên thực\nhiện trên các layer cuối. Hoặc sử dụng một kỹ thuật khác là coi đầu ra của một layerxa\nlayer cuối hơn (xa hơn layer gần cuối) làm các feature vector.\n• CSDL mới là lớn và rất khác CSDL gốc.Thực tế cho thấy, sử dụng các network sẵn có\ntrên CSDL mới vẫn hữu ích. Trong trường hợp này, ta vẫn có thể sử dụng các network\nsẵn có như là điểm khởi tạo của network mới, không nên huấn luyện network mới từ đầu.\nCó một điểm đáng chú ý nữa là khi tiếp tục huấn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8e8a1d72aef13bb7234b61b354ad1cea9c569ca4743b8fddf982b69e277a6504",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "u.\nCó một điểm đáng chú ý nữa là khi tiếp tục huấn luyện các network này, ta chỉ nên chọn\nlearning ratenhỏ để các hệ số mới không đi quá xa so với các hệ số đã được huấn luyện ở\ncác mô hình trước.\n6.5 Chuẩn hoá vector đặc trưng\nCác điểm dữ liệu đôi khi được đo đạc với những đơn vị khác nhau, mét và feet chẳng hạn.\nHoặc có hai thành phần (của vector dữ liệu) chênh lệch nhau quá lớn, một thành phần có\nkhoảng giá trị từ 0 đến 1000, thành phần kia chỉ có khoảng giá trị từ 0 đến 1 chẳng hạn.\nLúc này,",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "3172bd93c5b6134bd58f1db01d312c7f7a2844eb6d56adf867a0b47e74510855",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 93,
+    "text": "ỉ có khoảng giá trị từ 0 đến 1 chẳng hạn.\nLúc này, chúng ta cần chuẩn hóa dữ liệu trước khi thực hiện các bước tiếp theo.\n6 Transfer Learning, CS231n(https://goo.gl/VN1g7F )\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 81,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "19c122d26a41c37732537e74b01a551356d6c5ffad7e68b5c4dcb78b7a400527",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 94,
+    "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 82\nChú ý:việc chuẩn hóa này chỉ được thực hiện khi vector dữ liệu đã có cùng chiều.\nMột vài phương pháp chuẩn hóa thường dùng:\n6.5.1 Rescaling\nPhương pháp đơn giản nhất là đưa tất cả các đặc trưng về cùng một khoảng, chẳng hạn\n[0, 1] hoặc [−1, 1] tùy thuộc vào ứng dụng. Nếu muốn đưa đặc trưng thứi của một vector\nđặc trưng x về khoảng [0, 1], công thức sẽ là:\nx′i = xi− min(xi)max(xi)− min(xi)\ntrong đóxi và x′i lần lượt là giá trị đặc trưng ban đầu và gi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 82,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "fb6bb501db65f4f7b0f94e35cfa6bc46f014eecb2a4c489d8a3489f8b5dcb9aa",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 94,
+    "text": "và x′i lần lượt là giá trị đặc trưng ban đầu và giá trị đặc trưng sau khi được\nchuẩn hóa. min(xi), max(xi) là giá trị nhỏ nhất và lớn nhất của đặc trưng thứi xét trên\ntoàn bộ các điểm dữ liệu của tập huấn luyện.\n6.5.2 Standardization\nMột phương pháp khác cũng thường được sử dụng là giả sử mỗi đặc trưng đều có phân phối\nchuẩn với kỳ vọng là 0 và phương sai là 1. Khi đó, công thức chuẩn hóa sẽ là\nx′i = xi− ¯xiσi\nvới ¯xi,σi lần lượt là kỳ vọng và độ lệch chuẩn (standard deviation) của đặc trưng đó ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 82,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "db15a9bc6068fc9a6ce29d690f03ac948f6f5a930ed95d1ac986dc20ea532c6e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 94,
+    "text": " lệch chuẩn (standard deviation) của đặc trưng đó xét trên\ntoàn bộ dữ liệu huấn luyện.\n6.5.3 Scaling to unit length\nMột lựa chọn khác cũng được sử dụng rộng rãi là chuẩn hóa các thành phần của mỗi vector\ndữ liệu sao cho toàn bộ vector có độ dài Euclid bằng một. Việc này có thể được thực hiện\nbằng cách chia mỗi vector đặc trưng cho𝓁2 norm của nó:\nx′ = x‖x‖2\n6.6 Đọc thêm\n1. G. Csurkaet al., Visual categorization with bags of keypoints. Workshop on statistical\nlearning in computer vision, ECCV. Vol",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 82,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "5273a647ad8604b539ce2892537638384e52d4ced20753932c3d977740424b1f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 94,
+    "text": "statistical\nlearning in computer vision, ECCV. Vol. 1. No. 1-22. 2004 [CDF+04].\n2. S. Lazebnik et al., Beyond bags of features: Spatial pyramid matching for recognizing\nnatural scene categories., CVPR 2006 [LSP06]\n3. Preprocessing data, scikit learn(https://goo.gl/gkCuUp ).\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "feature-engineering",
+      "chapter": 6,
+      "chapter_title": "Giới thiệu về feature engineering",
+      "printed_page": 82,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "d04319d8e81f6332b5348a2be3ce3eb46fb87ad7141ea95d636c1fee8500bded",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 95,
+    "text": "Chương 7\nLinear regression\nTrong chương này, chúng ta cùng làm quen với một trong những thuật toán machine learning\ncơ bản nhất–linear regression (hồi quy tuyến tính). Qua chương này, bạn đọc sẽ có cái nhìn\nban đầu về việc xây dựng một hệ thống machine learning. Linear regression là một thuật\ntoán supervised, ở đó quan hệ giữa đầu vào và đầu ra được mô tả bởi một hàm tuyến tính.\nThuật toán này còn được gọi làlinear fittinghoặc linear least square.\n7.1 Giới thiệu\nXét bài toán ước lượng giá của mộ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 83,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2d5ce37e0e6834c6ab44c32c6bbdb45bd13df96df9976295e3aed06a7a515e51",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 95,
+    "text": ".\n7.1 Giới thiệu\nXét bài toán ước lượng giá của một căn nhà rộngx1 m2, cóx2 phòng ngủ và cách trung tâm\nthành phốx3 km. Giả sử ta đã thu thập được số liệu từ 1000 căn nhà trong thành phố đó,\nliệu rằng khi có một căn nhà mới với các thông số về diện tíchx1, số phòng ngủx2 và khoảng\ncách tới trung tâmx3, chúng ta có thể dự đoán được giáy của căn nhà đó không? Nếu có\nthì hàm dự đoány =f(x) sẽ có dạng như thế nào. Ở đây, vector đặc trưngx = [x1,x 2,x 3]T\nlà một vector cột chứa thông tin đầu vào, đầu",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 83,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4f96ec219dbd8c0469c026286d1e4845d56ea81f65492aa133bb2fea0b9c3404",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 95,
+    "text": " 3]T\nlà một vector cột chứa thông tin đầu vào, đầu ray là một số vô hướng.\nMột cách trực quan, ta có thể thấy rằng: (i) diện tích nhà càng lớn thì giá nhà càng cao; (ii)\nsố lượng phòng ngủ càng lớn thì giá nhà càng cao; (iii) càng xa trung tâm thì giá nhà càng\ngiảm. Dựa trên quan sát này, ta có thể mô hình quan hệ giữa đầu ra và đầu vào bằng một\nhàm tuyến tính đơn giản:\ny≈ ˆy =f(x) =w1x1 +w2x2 +w3x3 = xTw (7.1)\ntrong đó w = [w1,w 2,w 3]T là vector hệ số (hoặc trọng số–weight vector) ta cần đi tì",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 83,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a2c2e859fcc1dc1eef2d2dd533cd6b765d20898f558e6c4dad850f93d51e3501",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 95,
+    "text": "r hệ số (hoặc trọng số–weight vector) ta cần đi tìm. Đây\ncũng chính là tham số mô hình của bài toán. Mối quan hệy≈f(x) như trong (7.1) là một\nmối quan hệ tuyến tính.\nBài toán trên đây là bài toán dự đoán giá trị của đầu ra dựa trên vector đặc trưng đầu vào.\nNgoài ra, giá trị của đầu ra có thể nhận rất nhiều giá trị thực dương khác nhau. Vì vậy,\nđây là một bài toán regression. Mối quan hệˆy = xTw là một mối quan hệ tuyến tính. Tên\ngọilinear regressionxuất phát từ đây.",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 83,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "19765c70524c00c830148c28786f66579ccf7fd96c4560dd6489e8f713adab15",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 96,
+    "text": "CHƯƠNG 7. LINEAR REGRESSION 84\nChú ý:\n1. y là giá trị thực của đầu ra(ground truth), trong khiˆy là giá trịđầu ra dự đoán(predicted\noutput) của mô hình linear regression. Nhìn chung,y và ˆy là hai giá trị khác nhau do có\nsai số mô hình, tuy nhiên, chúng ta mong muốn rằng sự khác nhau này rất nhỏ.\n2. Linear hay tuyến tính hiểu một cách đơn giản làthẳng, phẳng. Trong không gian hai\nchiều, một hàm số được gọi làtuyến tính nếu đồ thị của nó có dạng mộtđường thẳng.\nTrong không gian ba chiều, một hàm ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 84,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2bffb5a3a1851d7f8c874ce80900cb2f48d57ee49276c7dfbc377a244edadceb",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 96,
+    "text": "ộtđường thẳng.\nTrong không gian ba chiều, một hàm số được goi làtuyến tính nếu đồ thị của nó có\ndạng mộtmặt phẳng. Trong không gian nhiều hơn ba chiều, khái niệmmặt phẳngkhông\ncòn phù hợp nữa, thay vào đó, một khái niệm khác ra đời được gọi làsiêu mặt phẳng\n(hyperplane). Các hàm số tuyến tính là các hàm đơn giản nhất, vì chúng thuận tiện trong\nviệc hình dung và tính toán.\n7.2 Xây dựng và tối ưu hàm mất mát\n7.2.1 Sai số dự đoán\nSau khi đã xây dựng được mô hình dự đoán đầu ra như (7.1), ta cần tìm",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 84,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "78132890ffe8872c9442946901cb20141a03bf0e7473a07457eb3221110487cc",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 96,
+    "text": " được mô hình dự đoán đầu ra như (7.1), ta cần tìm một phép đánh giá\nphù hợp với bài toán. Với bài toán regression nói chung, ta mong muốn rằng sự sai kháce\ngiữa giá trị thựcy và giá trị dự đoánˆy là nhỏ nhất. Nói cách khác, chúng ta muốn giá trị\nsau đây càng nhỏ càng tốt:\n1\n2e2 = 12(y− ˆy)2 = 12(y− xTw)2 (7.2)\nở đây ta lấy bình phương vìe = y− ˆy có thể là một số âm. Việc sai số là nhỏ nhất có thể\nđược mô tả bằng cách lấy trị tuyệt đối|e| =|y− ˆy|, tuy nhiên, cách làm này ít được sử dụng\nvì hàm",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 84,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0f28b31d2397ef60e3b6a8a6c1bab90c27c4b553e994e272cc695e9a5a1494e2",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 96,
+    "text": "y|, tuy nhiên, cách làm này ít được sử dụng\nvì hàm trị tuyệt đối không khả vi tại mọi điểm, không thuật tiện cho việc tối ưu sau này.\nHệ số 12 sẽ bị triệt tiêu sau này khi lấy đạo hàm củae theo tham số mô hìnhw.\n7.2.2 Hàm mất mát\nĐiều tương tự xảy ra với tất cả các cặp(input, output) (xi,yi),i = 1, 2,...,N , vớiN là số\nlượng dữ liệu quan sát được. Điều chúng ta mong muốn–trung bình sai số là nhỏ nhất–tương\nđương với việc tìmw để hàm số sau đạt giá trị nhỏ nhất:\nL(w) = 12N\nN∑\ni=1\n(yi− xTi w)2 (7.",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 84,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0ae0a48c0e151a2ff1f4230b4ba2152fe70e37ba8eb94555ee69e11e679472c0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 96,
+    "text": "á trị nhỏ nhất:\nL(w) = 12N\nN∑\ni=1\n(yi− xTi w)2 (7.3)\nHàm sốL(w) chính là hàm mất mát của linear regression với tham số mô hìnhθ = w.\nChúng ta luôn mong muốn rằng sự mất mát là nhỏ nhất, điều này có thể đạt được bằng\ncách tối thiểu hàm mất mát theow:\nw∗ = argmin\nw\nL(w) (7.4)\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 84,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "28b043329e42b01ef88083731b9a46e0868a3cb5781767bcb1dc1da7ee30ce7e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 97,
+    "text": "85 CHƯƠNG 7. LINEAR REGRESSION\nw∗ là nghiệm cần tìm, đôi khi dấu∗ được bỏ đi và nghiệm có thể được viết gọn lại thành\nw = argmin\nw\nL(w).\nTrung bình sai số\nViệc lấy trung bình (hệ số 1N) hay lấy tổng trong hàm mất mát, về mặt toán học,\nkhông ảnh hưởng tới nghiệm của bài toán. Trong machine learning, các hàm mất mát\nthường có chứa hệ số tính trung bình theo từng điểm dữ liệu trong tập huấn luyện. Khi\ntính giá trị của hàm mất mát trên tập kiểm thử, ta cũng tính trung bình lỗi của mỗi\nđiểm. Việc lấy",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 85,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0aee05fedb404e7455cb3ad2c06c06b68fedd145d9d6e075585536ce23e851c0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 97,
+    "text": "ta cũng tính trung bình lỗi của mỗi\nđiểm. Việc lấy trung bình này quan trọng vì số lượng điểm dữ liệu trong mỗi tập dữ\nliệu có thể thay đổi. Việc tính toán mất mát trên từng điểm dữ liệu sẽ hữu ích hơn\ntrong việc đánh giá chất lượng mô hình sau này. Ngoài ra, việc lấy trung bình cũng\ngiúp tránh hiện tượng tràn số khi số lượng điểm dữ liệu quá nhiều.\nTrước khi đi xây dựng nghiệm cho bài toán tối ưu hàm mất mát, ta thấy rằng hàm số này\ncó thể được viết gọn lại dưới dạng ma trận, vector, và norm nh",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 85,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "168f7f4347aad857c4d630ca6f0935183eb7e0ea0ba089b3f733328bdb9f4ac2",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 97,
+    "text": "viết gọn lại dưới dạng ma trận, vector, và norm như dưới đây:\nL(w) = 12N\nN∑\ni=1\n(yi− xTi w)2 = 12N\n‖‖‖‖‖‖‖‖‖y1y2...yN−xT1xT2...xTN w‖‖‖‖‖‖‖‖‖22 = 12N‖y− XTw‖22 (7.5)\nvới y = [y1,y 2,...,y N]T, X = [x1, x2,..., xN]. Như vậyL(w) là một hàm số liên quan tới\nbình phương của𝓁2 norm.\n7.2.3 Nghiệm cho bài toán Linear Regression\nNhận thấy rằng hàm mất mátL(w) có đạo hàm tại mọiw (xem Bảng 2.1). Vậy việc tìm\ngiá trị tối ưu củaw có thể được thực hiện thông qua việc giải phương trình đạ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 85,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ae2b0aa26659d2071c145f3bf71d5d58be25abfc57120aa0d7bd3da9b0a24803",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 97,
+    "text": "được thực hiện thông qua việc giải phương trình đạo hàm của\nL(w) theo w bằng không. Thật may mắn, đạo hàm của hàm mất mát của linear regression\nrất đơn giản:\n∇L(w)\n∇w = 1N X(XTw− y) (7.6)\nGiải phương trình đạo hàm bằng không:\n∇L(w)\n∇w = 0⇔ XXTw = Xy (7.7)\nNếu ma trậnXXT khả nghịch, phương trình (7.7) có nghiệm duy nhấtw = (XXT )−1Xy.\nNếu ma trậnXXT không khả nghịch, phương trình (7.7) sẽ vô nghiệm hoặc có vô số nghiệm.\nLúc này, một nghiệm đặc biệt của phương trình có thể được xác định dựa vàogiả",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 85,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8a2e8dae69146ce174f325ea23034dcb1ae06de0a175af9e766308de4500c535",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 97,
+    "text": "t của phương trình có thể được xác định dựa vàogiả nghịch đảo\n(pseudo inverse). Người ta chứng minh được rằng1 với mọi ma trậnX, luôn tồn tại duy nhất\n1 Least Squares, Pseudo-Inverse, PCA & SVD(https://goo.gl/RoQ6mS )\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 85,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0be10cb8e67568391ce8a0eb77205ee2fca04f4c0509cc8b77b790363ee521db",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "CHƯƠNG 7. LINEAR REGRESSION 86\nmột giá trịw có 𝓁2 norm nhỏ nhất giúp tối thiểu‖XTw− y‖2F. Cụ thể,w = (XXT )†Xy,\ntrong đó(XXT )† là giả nghịch đảo củaXXT. Giả nghịch đảo của một ma trậnA luôn luôn\ntồn tại, thậm chí cả khi ma trận đó không vuông. KhiA là vuông và khả nghịch thì giả\nnghịch đảo chính là nghịch đảo. Nghiệm của bài toán tối ưu (7.4) là\nw = (XXT )†Xy (7.8)\nHàm số tính giả nghịch đảo của một ma trận bất kỳ có sẵn trong thư viện numpy.\n7.2.4 Bias trick\nChú ý rằng quan hệy = xTw là một qu",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "06de62b76af899b51d763f5f24c4fdb16e32d1b1dd3e2cd344fa019c5bbf46bb",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "2.4 Bias trick\nChú ý rằng quan hệy = xTw là một quan hệ tuyến tính. Linear regression thường để nói\ntới một quan hệ hơi phức tạp hơn một chút khi có sự xuất hiện của một số hạng tự dob:\ny = xTw +b (7.9)\nMối quan hệ này còn được gọi làaffine. Nếub = 0, đường thẳngy = xTw +b luôn đi qua\ngốc toạ độ. Việc thêm hệ sốb vào sẽ khiến cho mô hình linh hoạt hơn một chút bằng cách\nbỏ ràng buộc đường thẳng quan hệ giữa đầu ra và đầu vào luôn đi qua gốc toạ độ. Đại lượng\nb còn được gọi làbias. Đại lượng này ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8328ab68c5fc9866d0fad34a3cbafedcdf22c544e9e0596c9a0ab175bfee38b1",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "ộ. Đại lượng\nb còn được gọi làbias. Đại lượng này cũng có thểhọc đượcnhư vector hệ sốw.\nĐể ý thấy rằng, nếu coix0 = 1, ta sẽ có:\ny = xTw +b =w1x1 +w2x2 +··· +wdxd +bx0 = ¯xT ¯w (7.10)\ntrong đó ¯x = [x0,x 1,x 2,...,x N]T và ¯w = [b,w 1,w 2,...,w N]. Nếu đặt ¯X = [¯x1, ¯x2,..., ¯xN]\nta sẽ có nghiệm của bài toán tối thiểu hàm mất mát:\n¯w = argmin\nw\n1\n2N‖y− ¯XT ¯w‖22 = ( ¯X ¯XT )† ¯Xy (7.11)\nKỹ thuật thêm một đặc trưng bằng 1 vào vector đặc trưng và ghép biasb vào vector hệ số\nw như trên còn được gọ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8e4271f642396e397f6775c330d1c3cf59260de38e1980eb132e729515a6a9fb",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "ghép biasb vào vector hệ số\nw như trên còn được gọi làbias trick. Chúng ta sẽ còn gặp lại kỹ thuật này nhiều lần trong\ncuốn sách này.\n7.3 Ví dụ trên Python\n7.3.1 Bài toán\nXét một ví dụ đơn giản có thể áp dụng linear regression. Chúng ta cũng sẽ so sánh nghiệm của\nbài toán khi giải theo phương trình (7.11) và nghiệm tìm được khi dùng thư viện scikit-learn\ncủa Python.\nXét ví dụ về dự đoán cân nặng dựa theo chiều cao. Xét bảng cân nặng và chiều cao của 15\nngười trong Bảng 7.1. Dữ liệu của hai người",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f450352019a7a4f3652eee2b568d6b726baa11d6564a0589d8b878191dce2d6b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "của 15\nngười trong Bảng 7.1. Dữ liệu của hai người có chiều cao 155 cm và 160 cm được tách ra\nlàm test set, phần còn lại tạo thành training set.\nBài toán đặt ra là: liệu có thể dự đoán cân nặng của một người dựa vào chiều cao của họ\nkhông? (Trên thực tế, tất nhiên là không, vì cân nặng còn phụ thuộc vào nhiều yếu tố khác\nnữa, thể tích chẳng hạn). Có thể thấy là cân nặng thường tỉ lệ thuận với chiều cao (càng\ncao càng nặng), nên có thể sử dụng linear regression cho việc dự đoán này.\nMachine Learn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "97582ba2bf2c26fed1966649cd8822d96664cb3e7c09be98ed18189088425996",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 98,
+    "text": "ear regression cho việc dự đoán này.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 86,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "49c7bd081831490757885e9ea73ca5a7f5a2c6b9c48263404a7ad72bc9e0a65a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 99,
+    "text": "87 CHƯƠNG 7. LINEAR REGRESSION\nBảng 7.1: Bảng dữ liệu về chiều cao và cân nặng của 15 người\nChiều cao (cm) Cân nặng (kg) Chiều cao (cm) Cân nặng (kg)\n147 49 168 60\n150 50 170 72\n153 51 173 63\n155 52 175 64\n158 54 178 66\n160 56 180 67\n163 58 183 68\n165 59\n7.3.2 Hiển thị dữ liệu trên đồ thị\nTrước tiên, chúng ta khai báo training data:\nfrom __future__ import print_function\nimport numpy as np\nimport matplotlib.pyplot as plt\n# height (cm), input data, each row is a data point\nX = np.array([[147, 150,",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 87,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f492c53dadb2c960e1ba7c20fc92547de1e62de1b5d475ce9925a9a69607c6ef",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 99,
+    "text": " each row is a data point\nX = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T\n# weight (kg)\ny = np.array([ 49, 50, 51, 54, 58, 59, 60, 62, 63, 64, 66, 67, 68])\nCác điểm dữ liệu được minh hoạ bởi các điểm màu đỏ trong Hình 7.1 Ta thấy rằng dữ liệu\nđược sắp xếp gần như theo một đường thẳng, vậy mô hình linear regression sau đây có khả\nnăng cho kết quả tốt:\n(cân nặng) =w_1*(chiều cao) +w_0\nở đây w_0 chính là biasb.\n7.3.3 Nghiệm theo công thức\nTiếp theo, chúng ta sẽ t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 87,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "b8dec8cc7168b60fa94cc6b0dff1e6f9a287f261c00103ac92b0786554536ba9",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 99,
+    "text": "3.3 Nghiệm theo công thức\nTiếp theo, chúng ta sẽ tính toán các hệ sốw_1 và w_0 dựa vào công thức (7.11). Chú ý: giả\nnghịch đảo của một ma trậnA trong Python sẽ được tính bằngnumpy.linalg.pinv(A).\n# Building Xbar\none = np.ones((X.shape[0], 1))\nXbar = np.concatenate((one, X), axis = 1) # each point is one row\n# Calculating weights of the fitting line\nA = np.dot(Xbar.T, Xbar)\nb = np.dot(Xbar.T, y)\nw = np.dot(np.linalg.pinv(A), b)\n# weights\nw_0, w_1 = w[0], w[1]\nMachine Learning cơ bản https://machi",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 87,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ab4f9b5d90a54dcdc780d284e1055c0b0f98732eb71d32450baad28f91e9a9dc",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 99,
+    "text": "= w[0], w[1]\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 87,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "bdf40284e85ca340309949a1d4078583166e77c21889eb1a42d240d7f97092d4",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 100,
+    "text": "CHƯƠNG 7. LINEAR REGRESSION 88\n140 150 160 170 180 190\nHeight (cm)\n45\n50\n55\n60\n65\n70\n75Weight (kg)\nHình 7.1: Phân bố của các\nđiểm dữ liệu (màu đỏ) và đường\nthẳng xấp xỉ tìm được bởi linear\nregression.\nĐường thẳng mô tả mối quan hệ giữa đầu vào và đầu ra được cho trên Hình 7.1. Ta thấy\nrằng các điểm dữ liệu màu đỏ nằm khá gần đường thẳng dự đoán màu xanh. Vậy mô hình\nlinear regression hoạt động tốt với tập dữ liệu huấn luyện. Bây giờ, chúng ta sử dụng mô\nhình này để dự đoán dữ liệu trong test set",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 88,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "4c042c3c665553c20668e79958abd81243d559f372e9427f22eccc81336122a4",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 100,
+    "text": "dụng mô\nhình này để dự đoán dữ liệu trong test set:\ny1 = w_1*155 + w_0\ny2 = w_1*160 + w_0\nprint(’Input 155cm, true output 52kg, predicted output %.2fkg’ %(y1) )\nprint(’Input 160cm, true output 56kg, predicted output %.2fkg’ %(y2) )\nKết quả:\nInput 155cm, true output 52kg, predicted output 52.94kg\nInput 160cm, true output 56kg, predicted output 55.74kg\nChúng ta thấy rằng kết quả dự đoán khá gần với số liệu thực tế.\n7.3.4 Nghiệm theo thư viện scikit-learn\nTiếp theo, chúng ta sẽ sử dụng thư viện sci",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 88,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "72e4c6ee07bc040ff4f9b304f925fd6e37574758d520fdeb3249b1bc04ccc146",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 100,
+    "text": "-learn\nTiếp theo, chúng ta sẽ sử dụng thư viện scikit-learn để tìm nghiệm.\nfrom sklearn import datasets, linear_model\n# fit the model by Linear Regression\nregr = linear_model.LinearRegression()\nregr.fit(X, y) # in scikit-learn, each sample is one row\n# Compare two results\nprint(\"scikit-learn’s solution : w_1 = \", regr.coef_[0], \"w_0 = \", regr.intercept_)\nprint(\"our solution : w_1 = \", w[1], \"w_0 = \", w[0])\nKết quả dưới đây cho thấy rằng hai cách tính cho kết quả như nhau.\nscikit-learn solution :",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 88,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "7c038b48280a155d6dcad10c375940eb0a7efe8d4f9b407989fb1a33cf23b785",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 100,
+    "text": "tính cho kết quả như nhau.\nscikit-learn solution : w_1 = [ 0.55920496] w_0 = [-33.73541021]\nour solution : w_1 = [ 0.55920496] w_0 = [-33.73541021]\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 88,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8f767921da2888e42f8a81c15ceeed92c3784de31a2afed713de0fa21b820614",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 101,
+    "text": "89 CHƯƠNG 7. LINEAR REGRESSION\nx\ny\nPolynomial regression\nTrained model\n(a)\n140 150 160 170 180 190\nHeight (cm)\n50\n60\n70\n80\n90Weight (kg)\n(b)\nHình 7.2: (a) Polynomial regression bậc ba. (b) Linear regression nhạy cảm với nhiễu nhỏ.\n7.4 Thảo luận\n7.4.1 Các bài toán có thể giải bằng linear regression\nHàm số y ≈ f(x) = xTw là một hàm tuyến tính theo cả w và x. Trên thực tế, linear\nregression có thể áp dụng cho các mô hình chỉ cần tuyến tính theow. Ví dụ,\ny≈w1x1 +w2x2 +w3x21 +w4 sin(x2) +w5x1x2 +w0 (",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 89,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "77f610cb643af23fc50cf0c5b3cbac89a6159686af49832ad7b48c6c66e41672",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 101,
+    "text": " dụ,\ny≈w1x1 +w2x2 +w3x21 +w4 sin(x2) +w5x1x2 +w0 (7.12)\nlà một hàm tuyến tính theo w và vì vậy cũng có thể được giải bằng linear regression.\nVới mỗi vector đặc trưng x = [x1,x 2]T, chúng ta tính toán vector đặc trưng mới mới\n˜x = [x1,x 2,x 21, sin(x2),x 1x2]T rồi áp dụng linear regression với dữ liệu mới này. Tuy nhiên,\nviệc tìm ra các hàm sốsin(x2) hayx1x2 là tương đốikhông tự nhiên. Hồi quy đa thức(poly-\nnomial regression) thường được sử dụng nhiều hơn với các vector đặc trưng mới có dạng\n[1,x",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 89,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8e05c55c53e54a5484a9db93b0ee9423fa3f2fdf25c4e7b44a39985d87716f4f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 101,
+    "text": "hiều hơn với các vector đặc trưng mới có dạng\n[1,x 1,x 21,... ]T. Một ví dụ về hồi quy đa thức bậc 3 được thể hiện trong Hình 7.2a.\n7.4.2 Hạn chế của linear regression\nHạn chế đầu tiên của linear regression là nó rấtnhạy cảm với nhiễu(sensitive to noise).\nTrong ví dụ về mối quan hệ giữa chiều cao và cân nặng bên trên, nếu có chỉ một cặp dữ liệu\nnhiễu (150 cm, 90kg) thì kết quả sẽ sai khác đi rất nhiều (xem Hình 7.2b).\nVì vậy, trước khi thực hiện linear regression, các nhiễu cần phải được loại bỏ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 89,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "3c83f314e9910187e39bfaf04c09db4ae17c0a34e310e7f1505b8df90aaeb58d",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 101,
+    "text": "linear regression, các nhiễu cần phải được loại bỏ. Bước này được\ngọi làtiền xử lý(pre-processing). Hoặc hàm mất mát có thể thay đổi một chút để tránh việc\ntối ưu các nhiễu bằng cách sử dụngHuber loss(https://goo.gl/TBUWzg ). Linear regression\nvới Huber loss được gọi làHuber regression, được khẳng định làrobust to noise(ít bị ảnh\nhưởng hơn bởi nhiễu). Xem thêmHuber Regressor, scikit learn(https://goo.gl/h2rKu5 ).\nHạn chế thứ hai của linear regression là nókhông biễu diễn được các mô hình phức\ntạ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 89,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a0281f6b45158182a741027ed87a52dc21faa141564fe9e4cf436fed234a4b7a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 101,
+    "text": "sion là nókhông biễu diễn được các mô hình phức\ntạp. Mặc dù trong phần trên, chúng ta thấy rằng phương pháp này có thể được áp dụng\nnếu quan hệ giữaoutcome và input không nhất thiết phải là tuyến tính, nhưng mối quan\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 89,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "24eb62bf5e2646db6f373394dcecb9a0b4d30d66bef5d58b30265ceea0f25766",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 102,
+    "text": "CHƯƠNG 7. LINEAR REGRESSION 90\nhệ này vẫn đơn giản nhiều so với các mô hình thực tế. Hơn nữa, việc tìm ra các đặc trưng\nx21, sin(x2),x 1x2 như ở trên là ít khả thi.\n7.4.3 Ridge regression\nTrong trường hợpma trậnXXT không khả nghịch, có một kỹ thuật nhỏ để tránh hiện tượng\nnày là biến đổiXXT một chút để biến nó trở thànhA = XXT +λI vớiλ là một số dương\nrất nhỏ vàI là ma trận đơn vị với bậc phù hợp.\nMa trận A là khả nghịch vì nó là một ma trận xác định dương. Thật vậy, với mọiw⁄= 0,\nwTAw = wT (XXT",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 90,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9d969e08f47cd596ab842ef0f77ef4d46faef9c712658d396cc6f9ce0168777d",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 102,
+    "text": "định dương. Thật vậy, với mọiw⁄= 0,\nwTAw = wT (XXT +λI)w = wTXXTw +λwTw =‖XTw‖22 +λ‖w‖22 > 0 (7.13)\nLúc này, nghiệm của bài toán lày = (XXT +λI)−1Xy. Nếu xét hàm mất mát\nL2(w) = 12N (‖y− XTw‖22 +λ‖w‖22) (7.14)\nvới phương trình đạo hàm theow bằng không:\n∇L2(w)\n∇w = 0⇔ 1N (X(XTw− y) +λw) = 0⇔ (XXT +λI)w = Xy (7.15)\nTa thấyw = (XXT +λI)−1Xy chính là nghiệm của bài toán tối thiểuL2(w)trong (7.14). Mô\nhình machine learning với hàm mất mát (7.14) còn được gọi làridge regression. Ngoài việc\ngiúp cho ph",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 90,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "ed89eaaf2936b6c4f80d7ba56b427038a09a75aab05b5d8da8c17ea9e1968b40",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 102,
+    "text": "ược gọi làridge regression. Ngoài việc\ngiúp cho phương trình đạo hàm theo hệ số bằng không có nghiệm duy nhất, ridge regression\ncòn giúp cho mô hình tránh được overfitting như chúng ta sẽ thấy ở Chương 8.\n7.4.4 Phương pháp tối ưu khác\nLinear regression là một mô hình đơn giản, lời giải cho phương trình đạo hàm bằng không\ncũng khá đơn giản.Trong hầu hết các trường hợp, chúng ta không thể giải được phương trình\nđạo hàm bằng không.Tuy nhiên, nếu một hàm mất mát có đạo hàm không quá phức tạp,\nnó có ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 90,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "3e3e4ac0e36395dbdde4ccf6d97b4abbfe7d2b4cae00f2db5a7b86a5b301326e",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 102,
+    "text": " hàm mất mát có đạo hàm không quá phức tạp,\nnó có thể được giải bằng một phương pháp rất hữu dụng có tên là gradient descent. Trên\nthực tế, một vector đặc trưng có thể có kích thước rất lớn, dẫn đến ma trậnXXT cũng có\nkích thước lớn và việc tính ma trận nghịch đảo có thể không lợi về mặt tính toán. Gradient\ndescent sẽ giúp tránh được việc tính ma trận nghịch đảo. Chúng ta sẽ hiểu kỹ hơn về phương\npháp này trong Chương 12.\n7.4.5 Đọc thêm\n1. Simple Linear Regression Tutorial for Machine Learning(h",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 90,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "84e92cdf1e7f64dc992eaffaf07abed82d7ce136b9818cfda2d64f656a41f4d9",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 102,
+    "text": " Linear Regression Tutorial for Machine Learning(https://goo.gl/WRVda8 ).\n2. Regularization: Ridge Regression and the LASSO(https://goo.gl/uRzN1K ).\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "linear-regression",
+      "chapter": 7,
+      "chapter_title": "Linear regression",
+      "printed_page": 90,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "b46196bcbdf570a8561a5f2f0affcf5fe12eed4f4958e02667695e837a564f8c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 103,
+    "text": "Chương 8\nOverfitting\nOverfitting là một hiện tượng không mong muốn thường gặp, người xây dựng mô hình\nmachine learning cần nắm được các kỹ thuật để tránh hiện tượng này.\n8.1 Giới thiệu\nTrong các bài toán supervised learning, chúng ta thường phải đi tìm một mô hình ánh xạ\ncác vector đặc trưng thành các kết quả tương ứng trong training set. Tức là đi tìm hàm số\nf sao choyi≈f(xi),∀i = 1, 2,...,N . Một cách tự nhiên, ta sẽ đi tìm các tham số mô hình\ncủa f sao cho việc xấp xỉ có sai số càng nhỏ càng ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 91,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "44196b53d19c03de35981bc0c4179f58194c8ffddc184fdef57a777779fbe39c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 103,
+    "text": "của f sao cho việc xấp xỉ có sai số càng nhỏ càng tốt. Nói cách khác, mô hình càngkhớp\n(fit) với dữ liệu càng tốt. Tuy nhiên, sự thật là nếu một mô hìnhquá fit với dữ liệu thì nó\nsẽ gây phản tác dụng. Hiện tượngquá fitnày trong machine learning được gọi làoverfitting.\nĐây là một hiện tượng xấu cần tránh. Vì có thể mô hình rấtfit với training set nhưng lại\nkhông biểu diễn tốt dữ liệu không được nhìn thấy khi huấn luyện. Một mô hình chỉ mô tả\ntốt training set là mô hình không cótính tổng quát(gene",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 91,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2fc15504af184603c33a3c38b7908e97384d51563855e2f77a63ec9486448173",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 103,
+    "text": "raining set là mô hình không cótính tổng quát(generalization). Một mô hình tốt là mô\nhình có tính tổng quát.\nĐể có cái nhìn đầu tiên về overfitting, chúng ta cùng xem Hình 8.1. Có 50 điểm dữ liệu, ở\nđó đầu ra bằng một đa thức bậc ba của đầu vào cộng thêm nhiễu. Tập dữ liệu này được\nchia làm hai phần: 30 điểm dữ liệu màu đỏ là training set, 20 điểm dữ liệu màu vàng là dữ\nliệu kiểm thử. Đồ thị của đa thức bậc ba này được cho bởi đường nét đứt màu xanh lục. Bài\ntoán đặt ra là giả sử ta không biết m",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 91,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "b001434185b9d64193354a1fd32a30257a5d080b454e5063917398460f150582",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 103,
+    "text": "anh lục. Bài\ntoán đặt ra là giả sử ta không biết mô hình ban đầu mà chỉ biết các điểm dữ liệu, hãy tìm\nmột mô hình tốt để mô tả quan hệ giữa đầu vào và đầu ra của dữ liệu đã cho. Giả sử biết\nthêm rằng mô hình được mô tả bởi một đa thức.\nNhắc lại đa thức nội suy Lagrange. ChoN cặp điểm dữ liệu(x1,y 1), (x2,y 2),..., (xN,yN)\nvới cácxi khác nhau đôi một, luôn tìm được một đa thứcP (.) bậc không vượt quáN− 1\nsao choP (xi) =yi,∀i = 1, 2,...,N .",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 91,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2d2abba314c76901adfa47de877757fbf87baf90414743c62d43e1529319b606",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 104,
+    "text": "CHƯƠNG 8. OVERFITTING 92\nx\ny\nDegree = 2: Underﬁtting\nTraining samples\nTest samples\nPredicted model\nTrue model\n(a)\nx\ny\nDegree = 4: Good ﬁt\nTraining samples\nTest samples\nPredicted model\nTrue model (b)\nx\ny\nDegree = 8: Overﬁtting\nTraining samples\nTest samples\nPredicted model\nTrue model\n(c)\nx\ny\nDegree = 16: Overﬁtting\nTraining samples\nTest samples\nPredicted model\nTrue model (d)\nHình 8.1: Underfitting và overfitting với polynomial regression.\nNhư đã đề cập trong Chương 7, với loại dữ liệu này, chúng t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 92,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "e4065139969af80260be44d7235d534ec17ca748a59358cf259458f1d0963dcf",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 104,
+    "text": " cập trong Chương 7, với loại dữ liệu này, chúng ta có thể áp dụng polynomial\nregression với vector đặc trưng làx = [1,x,x 2,x 3,...,x d]T cho đa thức bậcd. Điều quan\ntrọng là cần xác định bậcd của đa thức.\nRõ ràng là một đa thức bậc không vượt quá 29 có thểfit được hoàn toàn với 30 điểm trong\ntập training set. Xét một vài giá trịd = 2, 4, 8, 16. Vớid = 2, mô hình không thực sự tốt vì\nmô hình dự đoán(predicted model) quá khác so vớimô hình thực(true model); thậm chí nó\ncó xu hướng đi xuống khi m",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 92,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "07d9d2d06aa8e215007ed86720f8a2f8d98360fbfbdf05266478d082df973c85",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 104,
+    "text": "rue model); thậm chí nó\ncó xu hướng đi xuống khi mà dữ liệu đang có hướng đi lên. Trong trường hợp này, ta nói mô\nhình bịunderfitting. Vớid = 8, với các điểm dữ liệu trong training set, mô hình dự đoán và\nmô hình thực là khá giống nhau. Tuy nhiên, về phía phải, đa thức bậc 8 cho kết quả hoàn\ntoàn ngược với xu hướng của dữ liệu. Điều tương tự xảy ra trong trường hợpd = 16. Đa\nthức bậc 16 nàyquá fit training set. Việcquá fit trong trường hợp bậc 16 là không tốt vì\nmô hình có thể đang cố gắng mô tả",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 92,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "7894ce246dafe008ca19e7914e8acbbe86634e74d522e483f8556bc0378f226c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 104,
+    "text": " là không tốt vì\nmô hình có thể đang cố gắng mô tảnhiễu hơn là dữ liệu. Hiện tượng xảy ra ở hai trường\nhợp đa thức bậc cao này được gọi làoverfitting. Độ phức tạp của đồ thị trong hai trường\nhợp này cũng khá lớn, dẫn đến các đường dự đoán không được tự nhiên.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 92,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "14a9a8803a9ea21d80f463a177bc68c084e0af564a4bf5d4ae8ca31dd22d844c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "93 CHƯƠNG 8. OVERFITTING\nVớid = 4, mô hình dự đoán khá giống với mô hình thực. Hệ số bậc cao nhất tìm được rất\ngần với 01, vì vậy đa thưc bậc bốn này khá gần với đa thức bậc ba ban đầu. Đây chính là\nmột mô hình tốt.\nOverfitting là hiện tượng mô hình tìm đượcquá khớp với dữ liệu huấn luyện. Việc này sẽ\ngây ra hậu quả lớn nếu trong training set có nhiễu. Khi đó, mô hình quá chú trọng vào việc\nxấp xỉ training set mà quên đi việc quan trọng hơn là tính tổng quát, khiến cho mô hình\nkhông thực sự mô t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "8d8b63f75db2e8943e112f69b4fc3a81f0ff6fe8abaf1880c71d0b8d4340ad90",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "nh tổng quát, khiến cho mô hình\nkhông thực sự mô tả tốt dữ liệu ngoài training set. Overfitting đặc biệt xảy ra khi lượng dữ\nliệu huấn luyện quá nhỏ hoặc độ phức tạp của mô hình quá cao. Trong ví dụ trên đây, độ\nphức tạp của mô hình có thể được coi là bậc của đa thức cần tìm.\nVậy, có những kỹ thuật nào giúp tránh overfitting?\nTrước hết, chúng ta cần một vài đại lượng để đánh giá chất lượng của mô hình trên training\nset và test set. Dưới đây là hai đại lượng đơn giản, với giả sửy là đầu ra thực s",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "d93973d6bff89b6459e63c541076df0b86d19d85db3c911bf26093af2d6dcc0a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "i đại lượng đơn giản, với giả sửy là đầu ra thực sự (có thể là\nvector), vàˆ ylà đầu ra dự đoán bởi mô hình.\nTraining error:Đại lượng này là mức độ sai khác giữa đầu ra thực và đầu ra dự đoán của\nmô hình, thường là giá trị của hàm mất mát áp dụng lên training data. Hàm mất mát này\ncần có một thừa số 1Ntrain để tính giá trị trung bình, tức mất mát trung bình trên mỗi điểm\ndữ liệu. Với các bài toán regression, đại lượng này thường được xác định bởimean squared\nerror (MSE).\ntraining error= 12Ntrain ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "069f506da54906f8b05c0060ff2bd29a6670a58189d0403e3f38e0334d6aa438",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "ean squared\nerror (MSE).\ntraining error= 12Ntrain ∑training set‖y− ˆ y‖22\nVới classification, trung bình cộng của cross entropy loss (với softmax regression) hoặc hinge\nloss (với multi-class SVM) thường được sử dụng.\nTest error:Tương tự như trên, nhưng mô hình tìm được được áp dụng vào test data. Chú\ný rằng, khi xây dựng mô hình, ta không được sử dụng thông tin trong tập dữ liệu này. Với\nregression, đại lượng này thường được định nghĩa bởi\ntest error= 12Ntest ∑test set‖y− ˆ y‖22\nViệc lấy trung b",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0b30ef82fc10df80eb5d790a8d9cc3198b78267d73bf2ac311014272e38904bf",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "rror= 12Ntest ∑test set‖y− ˆ y‖22\nViệc lấy trung bình là quan trọng vì lượng dữ liệu trong tập huấn luyện và tập kiểm thử có\nthể chênh lệch rất nhiều.\nMột mô hình được coi là tốt (fit) nếu cảtraining errorvà test errorđều thấp. Nếutraining\nerror thấp nhưng test error cao, ta nói mô hình bị overfitting. Nếutraining error cao và\ntest error cao, ta nói mô hình bị underfitting. Xác suất để xảy ra việctraining error cao\nnhưng test error thấp là rất nhỏ. Trong chương này, chúng ta sẽ làm quen với hai ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2dfdbbc4403465c8b7cc9c2be484cfc5011e8bb75f6fdb001c3c1f300b9a5295",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 105,
+    "text": "ỏ. Trong chương này, chúng ta sẽ làm quen với hai kỹ thuật\nphổ biến giúp tránh overfitting làvalidation và regularization.\n1 Source code tạihttps://goo.gl/uD9hm1 .\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 93,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "d51129706eb274b880887ec5ec362ea3deb8aa623038bdd7f07409b63e59001b",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "CHƯƠNG 8. OVERFITTING 94\nHình 8.2: Lựa chọn mô hình dựa\ntrên validation error.\n8.2 Validation\n8.2.1 Validation\nMột mô hình là tốt nếu cả training error và test error đều nhỏ. Tuy nhiên, khi xây dựng một\nmô hìnhchỉ dựa trên training set, làm thế nào để biết được chất lượng của nó trên test set?\nPhương pháp đơn giản nhất làtrích từ training set ra một tập con nhỏ và thực hiện việc\nđánh giá mô hình trên tập con nhỏ này. Tập con nhỏđược trích ra từ training setnày\nđược gọi làvalidation set. Lúc này,",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f7f24a9092990deb53eee8e094daba4b8741eb38c530d4ac366e60a190e1acc1",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "raining setnày\nđược gọi làvalidation set. Lúc này,training set mới là phần còn lại của training set\nban đầu. Việc này khá giống với việc chúng ta ôn thi. Giả sử các đề thi của các năm trước\nlà training set, đề thi năm nay là test set mà ta chưa biết. Khi ôn tập, ta thường chia đề các\nnăm trước ra hai phần: phần thứ nhất có thể xem lời giải và tài liệu để ôn tập, phần còn lại\nta tự làm mà không sử dụng tài liệu để tự đánh giá kiến thức của mình. Lúc này, phần thứ\nnhất đóng vai trò là training set",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "d94652c95dc855c15854222c3b5aaf55af8abdaa8999f0ed9772caa9dd83946d",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "úc này, phần thứ\nnhất đóng vai trò là training set mới, trong khi phần thứ hai chính là validation set. Nếu\nkết quả bài làm trên phần thứ hai là khả quan, ta có thể tự tin hơn khi vào bài thi thật.\nLúc này, có ba đại lượng cần được quan tâm:training errortrên training set mới,validation\nerror được định nghĩa tương tự trên validation set, vàtest errortrên test set. Với khái niệm\nmới này, ta tìm mô hình sao cho cảtrain eror và validation error đều nhỏ, qua đó có thể\ndự đoán được rằngtest error cũn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "09374a8cc6e5df7e499e037a06ee1a57ef168d22a69f3ed7b84597f330a25f8d",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "nhỏ, qua đó có thể\ndự đoán được rằngtest error cũng nhỏ. Để làm được việc này, ta có thể huấn luyện nhiều\nmô hình khác nhau dựa trên training set, sau đó áp dụng các mô hình tìm được và tính\nvalidation error. Mô hình chovalidation error nhỏ nhất sẽ là một mô hình tốt.\nThông thường, ta bắt đầu từ mô hình đơn giản, sau đó tăng dần độ phức tạp của mô hình.\nKhi độ phức tạp này tăng lên, training error sẽ có xu hướng nhỏ dần, nhưng điều tương tự\ncó thể không xảy ra ở validation error. Validation erro",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "99859f866be2119f0f11acfd7af37551b1cc4a0f851822295fb1d506ba07604c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "ể không xảy ra ở validation error. Validation error ban đầu thường giảm dần và đến\nmột lúc sẽ tăng lên do overfitting xảy ra trên training khi độ phức tạp của mô hình tăng\nlên. Để chọn ra một mô hình tốt, ta quan sát validation error. Khivalidation errorcó chiều\nhướng tăng lên thì ta chọn mô hình trước đó.\nHình 8.2 mô tả ví dụ phía trên với bậc của đa thức tăng từ một đến tám. Validation set là\n10 điểm được lấy ra ngẫu nhiên từ training set 30 điểm ban đầu. Chúng ta hãy tạm chỉ xét\nMachine Learn",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "bda64f0b70526e46031b07312147096e7464b4031eedb410feb9c26f125f3667",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 106,
+    "text": "ểm ban đầu. Chúng ta hãy tạm chỉ xét\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 94,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c4c9677bfcdba94ce5ee12aec98719f4710171657788aa58777fff0c14b2108a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "95 CHƯƠNG 8. OVERFITTING\nhai đường màu lam và đỏ, tương ứng với training error và validation error. Khi bậc của đa\nthức tăng lên, training error có xu hướng giảm. Điều này dễ hiểu vì đa thức bậc càng cao,\nviệc xấp xỉ càng chính xác. Quan sát đường màu đỏ, khi bậc của đa thức là ba hoặc bốn thì\nvalidation error thấp, sau đó nó tăng dần lên. Dựa vào validation error, ta có thể xác định\nđược bậc cần chọn là ba hoặc bốn. Quan sát tiếp đường màu lục, tương ứng với test error,\nthật là trùng hợp, với b",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "922d676d8070eab00730b09f4f468d838bc41d005a1c4613164667971b3bf5e7",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "tương ứng với test error,\nthật là trùng hợp, với bậc bằng ba hoặc bốn, test error cũng đạt giá trị nhỏ nhất, sau đó\ntăng dần lên. Vậy cách làm này ở đây đã tỏ ra hiệu quả. Và mô hình phù hợp là mô hình\ncó bậc bằng ba hoặc bốn. Trong ví dụ này, validation set đóng vai trò tìm ra bậc của đa\nthức, training set đóng vai trò trong việc tìm các hệ số của đa thức với bậc đã biết. Các hệ\nsố của đa thức chính là cácmodel parameter, trong khi bậc của đa thức có thể được coi là\nhyperparameter. Cả training ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a61b90ddacc9941b8c4367d393a547b051da145d03a3fd3fbfe1e90cc6fe02e2",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "ức có thể được coi là\nhyperparameter. Cả training set và validation set đều đóng vai trò xây dựng mô hình. Nhắc\nlại rằng hai tập hợp này được tách ra từ training set ban đầu.\nViệc không sử dụng test data khi lựa chọn mô hình ở trên nhưng vẫn có được kết quả khả\nquan vì ta đã giả sử rằng validation data và test data có chung một đặc điểm nào đó (chung\nphân phối và đều chưa được mô hình nhìn thấy khi huấn luyện). Và khi cả hai đều là chưa\nđược nhìn thấy,error trên hai tập này sẽ tương đối giống nh",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "cf84a7d3cf66a4826842f7e9452da4d1e48f9feb62f0297ac4dce61a73eb21d5",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": " thấy,error trên hai tập này sẽ tương đối giống nhau.\nĐể ý rằng, khi bậc nhỏ (bằng một hoặc hai), cả ba error đều cao, khi đóunderfitting xảy ra.\n8.2.2 Cross-validation\nTrong nhiều trường hợp, chúng ta có rất hạn chế số lượng dữ liệu để xây dựng mô hình. Nếu\nlấy quá nhiều dữ liệu trong training set ra làm dữ liệu validation, phần dữ liệu còn lại của\ntraining set là không đủ để xây dựng mô hình. Lúc này, validation set phải thật nhỏ để giữ\nđược lượng dữ liệu cho training đủ lớn. Tuy nhiên, một vấ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "656dc441dc33715ca5e4733c098dd052ce298e67ddb2d8949e6721e993535cc7",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "ợng dữ liệu cho training đủ lớn. Tuy nhiên, một vấn đề khác nảy sinh. Khi validation\nset quá nhỏ, hiện tượng overfitting lại có thể xảy ra với training set còn lại. Có giải pháp\nnào cho tình huống này không?\nCâu trả lời làcross-validation.\nCross-validation là một cải tiến của validation với lượng dữ liệu trong validation set là nhỏ\nnhưng chất lượng mô hình được đánh giá trên nhiều tập validation khác nhau. Một cách\nthường được sử dụng là chia training set rak tập con không giao nhau, có kích thư",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "372b51f0c61a2bff3379f46508d8033d63c5d776f1cf4a4b5a8d5b5fc7a45811",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "ining set rak tập con không giao nhau, có kích thước gần\nbằng nhau. Tại mỗi lần, được gọi là mộtrun, một trong số k tập con được lấy ra làm\nvalidation set. Nhiều mô hình khác nhau sẽ được xây dựng dựa vào hợp củak− 1 tập con\ncòn lại. Mô hình cuối được xác định dựa trên trung bình của các training error và validation\nerror. Cách làm này còn có tên gọi làk-fold cross-validation.\nKhi k bằng với số lượng phần tử trong training set ban đầu, tức mỗi tập con có đúng một\nphần tử, ta gọi kỹ thuật này làl",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2401f70faa9134c261066bc44e4ab3a37a2e5b0b8894ad3c2cad22b51ab600e0",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 107,
+    "text": "p con có đúng một\nphần tử, ta gọi kỹ thuật này làleave-one-out.\nThư viện scikit-learn hỗ trợ rất nhiều phương thức cho phân chia dữ liệu và tính toán\nerror của các mô hình. Bạn đọc có thể xem thêmCross-validation: evaluating estimator\nperformance (https://goo.gl/Ars2cr ).\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 95,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "667b1164467f706027e00bf41daf667cf1948231dac65cdc9ad64c60be6a332c",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 108,
+    "text": "CHƯƠNG 8. OVERFITTING 96\nHình 8.3: Early stopping. Đường\nmàu xanh là training error, màu đỏ\nlà validation error. Trụcx thể hiện\nsố lượng vòng lặp, trụcy là giá trị\nerror. Thuật toán huấn luyện dừng\nlại tại vòng lặp mà validation error\nđạt giá trị nhỏ nhất (Nguồn: Over-\nfitting – Wikipedia).\n8.3 Regularization\nMột nhược điểm lớn củacross-validation là số lượng mô hình cần huấn luyện tỉ lệ thuận với\nk. Điều đáng nói là mô hình polynomial regression như trên chỉ có một tham số liên quan\nđến độ phức",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 96,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "310547b5c7ab25c3d914f07312aa8ad0cf67063d0ac5806de934971ccfa9f8ae",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 108,
+    "text": " như trên chỉ có một tham số liên quan\nđến độ phức tạp của mô hình cần xác định là bậc của đa thức. Trong các nhiều bài toán,\nlượng tham số cần xác định thường lớn hơn nhiều, và khoảng giá trị của mỗi tham số cũng\nrộng hơn nhiều, chưa kể đến việc có những tham số có thể là số thực. Điều này dẫn đến việc\nhuấn luyện nhiều mô hình là khó khả thi. Có một kỹ thuật giúp số mô hình cần huấn luyện\ngiảm đi nhiều, thậm chí chỉ một mô hình. Kỹ thuật này có tên gọi làregularization.\nRegularization, một cách",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 96,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "98c5f5c94658f9e02a98ad7cc8e122a32fd49b467f209ba892e4070e39e0a102",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 108,
+    "text": "tên gọi làregularization.\nRegularization, một cách dễ hiểu, là thay đổi mô hình một chút, chấp nhận hy sinh độ chính\nxác trong training set, nhưng giảm độ phức tạp của mô hình, giúp tránh overfitting trong\nkhi vẫn giữ được tính tổng quát của nó. Dưới đây là một vài kỹ thuật regularization.\n8.3.1 Early stopping\nRất nhiều các mô hình machine learning được xây dựng bằng cách sử dụng các thuật toán\nlặp cho tới khi hàm mất mát hội tụ để tìm ra nghiệm. Nhìn chung, giá trị hàm mất mát\ngiảm dần khi số v",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 96,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "e44a37eeed4bd641ac9cd2d2e361fc0afdadd7b0bfa6e8ace03646ea8124a2c9",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 108,
+    "text": " Nhìn chung, giá trị hàm mất mát\ngiảm dần khi số vòng lặp tăng lên. Một giải pháp giúp giảm overfitting là dừng thuật toán\ntrước khi nó hội tụ. Giải pháp này có tên làearly stopping.\nVậy dừng khi nào là phù hợp? Một kỹ thuật thường được sử dụng là tách từ training set ra\nmột validation set như trên. Trong khi huấn luyện, ta tính toán cả training error và validation\nerror, nếu training error vẫn có xu hướng giảm nhưng validation error có xu hướng tăng lên\nthì ta dừng thuật toán.\nHình 8.3 mô tả cá",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 96,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "dc571da0f3f28fa5225d79bae59da5b8963f01e2d5f75b165a66ab1cf6beb67f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 108,
+    "text": "tăng lên\nthì ta dừng thuật toán.\nHình 8.3 mô tả cách tìm điểmstopping. Chúng ta thấy rằng phương pháp này khá giống với\nphương pháp tìm bậc của đa thức ở phần trên của bài viết, với độ phức tạp của mô hình có\nthể được coi là số vòng lặp cần chạy. Số vòng lặp càng cao thì hàm mất mát càng nhỏ, tức\nmô hình có khả năngquá fit với training set.\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 96,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "9ccad3c05a8005d61f938653b338a3a28d7f96e39023a319e992e300082cb015",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "97 CHƯƠNG 8. OVERFITTING\n8.3.2 Thêm số hạng vào hàm mất mát\nKỹ thuật regularization phổ biến hơn là thêm vào hàm mất mát một số hạng nữa. Số hạng\nnày thường dùng để đánh giá độ phức tạp của mô hình với giá trị lớn thể hiện mô hình\nphức tạp.Hàm mất mát mớinày được gọi làregularized loss function, thường được định\nnghĩa như sau:\nLreg(θ) =L(θ) +λR(θ)\nNhắc lại rằngθ được dùng để ký hiệu các tham số trong mô hình.L(θ) là hàm mất mát\nphụ thuộc vào training set vàθ, R(θ) là số hạngregularization chỉ ph",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "7ba8df3ffe0200e8aeee77f98c1c64d08066913be111c235a4f85dd310b395b6",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "ning set vàθ, R(θ) là số hạngregularization chỉ phụ thuộc vàoθ. Số vô\nhướngλ thường là một số dương nhỏ, còn được gọi làtham số regularization(regularization\nparameter). Tham số regularization thường được chọn là các giá trị nhỏ để đảm bảo nghiệm\ncủa bài toán tối ưuLreg(θ) không quá xa nghiệm của bài toán tối ưuL(θ).\nHai hàm regularization phổ biến là𝓁1 norm và𝓁2 norm regularization (viết gọn là𝓁1 regu-\nlarization và𝓁2 regularization). Ví dụ, khi chọnR(w) =‖w‖22 cho hàm mất mát của linear\nregres",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "0f7aea81cc8ea66ad8c7120ec9b023c6236975873f81a2befe17aa1aee5afae3",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": " chọnR(w) =‖w‖22 cho hàm mất mát của linear\nregression, chúng ta sẽ đạt được ridge regression. Hàm regularization này khiến các hệ số\ntrong w không quá lớn, giúp tránh việc đầu ra phụ thuộc quá nhiều vào một đặc trưng\nnào đó. Trong khi đó, khi chọnR(w) =‖w‖1, nghiệm w tìm được có xu hướng rất nhiều\nphần tử bằng không (sparse solution2). Khi thêm𝓁1 regularization vào hàm mất mát của\nlinear regression, chúng ta sẽ thu được LASSO regression. Các thành phần khác không của\nw tương đương với các đặc t",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "f09101557781d536d9b6abc6d446e271ab99ba77ae790139c4d4a7c10d8f431a",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "nh phần khác không của\nw tương đương với các đặc trưng quan trọng đóng góp vào việc dự đoán đầu ra. Các đặc\ntrưng ứng với thành phần bằng không củaw được coi là ít quan trọng. Chính vì vậy, LASSO\nregression cũng được coi là một phương pháp giúp lựa chọn những đặc trưng hữu ích cho\nmô hình; nó cũng là một trong các phương phápfeature selection.\n𝓁1 regularization được cho là giúp cho mô hìnhrobust (ít bị ảnh hưởng bởi nhiễu) hơn so với\n𝓁2 regularization. Tuy nhiên, hạn chế của𝓁1 regularization là ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "a02396b421de8e4ef731bd2d6ed8c9cc9f763461592a045ad759724ff8c0f6ec",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "ation. Tuy nhiên, hạn chế của𝓁1 regularization là đạo hàm của𝓁1 norm không\nxác định tại không (đạo hàm của hàm trị tuyệt đối), dẫn đến việc tìm nghiệm thường tốn\nthời gian hơn. Trong khi đó, đạo hàm của𝓁2 norm xác định mọi nơi, và trong nhiều trường\nhợp, ta có thể tìm được công thức nghiệm cho phương trình đạo hàm của (regularized) loss\nfunction bằng không. Các nghiệm có công thức xác định được gọi làclosed-form solution.\nTrong neural network, việc sử dụng𝓁2 regularization còn được gọi làweight ",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "2c4f869c026ccdf8d50af934966433e623e63431b96dd85a4f2f9c48b18b8c5f",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "ệc sử dụng𝓁2 regularization còn được gọi làweight decay[KH92].\nNgoài ra, gần đây một phương pháp regularization rất hiệu quả cho neural network được sử\ndụng làdropout [SHK+14].\n8.4 Đọc thêm\n1. A. Kroghet al., A simple weight decay can improve generalization.NIPS 1991 [KH92].\n2. N. Srivastavaet al.,Dropout: A Simple Way to Prevent Neural Networks from Overfitting,\nJournal of Machine Learning Research 15.1 (2014): 1929-1958 [SHK+14].\n3. Understanding the Bias-Variance Tradeoff(https://goo.gl/yvQv3",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  },
+  {
+    "chunk_id": "c9ae6ddf187505956873718cceb1c2cb9a9461bb6fc2b5c6731d0493de15e1e1",
+    "document_id": "book-ml",
+    "source": "book_ML_color.pdf",
+    "page": 109,
+    "text": "ng the Bias-Variance Tradeoff(https://goo.gl/yvQv3w ).\n2 L1 Norm Regularization and Sparsity Explained for Dummies(https://goo.gl/VqPTLh ).\nMachine Learning cơ bản https://machinelearningcoban.com",
+    "metadata": {
+      "title": "Machine Learning cơ bản",
+      "author": "Vũ Hữu Tiệp",
+      "language": "vi",
+      "year": 2018,
+      "source_url": "https://machinelearningcoban.com/ebook/",
+      "section": "overfitting",
+      "chapter": 8,
+      "chapter_title": "Overfitting",
+      "printed_page": 97,
+      "document_type": "pdf",
+      "is_empty": false
+    }
+  }
+]

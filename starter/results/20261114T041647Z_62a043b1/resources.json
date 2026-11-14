@@ -1,0 +1,29 @@
+{
+  "A": {
+    "namespace": "20261114T041647Z_62a043b1:A",
+    "chunks": 184,
+    "characters": 83802,
+    "embedding_seconds": 3.478553583030589,
+    "ingestion_seconds": 3.858835041988641,
+    "embedding_reused_from": null,
+    "api_cost": 0
+  },
+  "B": {
+    "namespace": "20261114T041647Z_62a043b1:B",
+    "chunks": 172,
+    "characters": 76302,
+    "embedding_seconds": 2.822846458060667,
+    "ingestion_seconds": 3.2244742079637945,
+    "embedding_reused_from": null,
+    "api_cost": 0
+  },
+  "C": {
+    "namespace": "20261114T041647Z_62a043b1:C",
+    "chunks": 172,
+    "characters": 76302,
+    "embedding_seconds": 0.0,
+    "ingestion_seconds": 0.09309033292811364,
+    "embedding_reused_from": "B",
+    "api_cost": 0
+  }
+}

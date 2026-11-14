@@ -1,0 +1,38 @@
+{
+  "A": {
+    "dev": {
+      "questions": 15,
+      "hit_at_1_count": 5,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3_count": 6,
+      "hit_at_3": 0.4,
+      "filter_questions": 4,
+      "filter_compliant_count": 3,
+      "filter_compliance": 0.75
+    }
+  },
+  "B": {
+    "dev": {
+      "questions": 15,
+      "hit_at_1_count": 5,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3_count": 6,
+      "hit_at_3": 0.4,
+      "filter_questions": 4,
+      "filter_compliant_count": 3,
+      "filter_compliance": 0.75
+    }
+  },
+  "C": {
+    "dev": {
+      "questions": 15,
+      "hit_at_1_count": 5,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3_count": 6,
+      "hit_at_3": 0.4,
+      "filter_questions": 4,
+      "filter_compliant_count": 4,
+      "filter_compliance": 1.0
+    }
+  }
+}

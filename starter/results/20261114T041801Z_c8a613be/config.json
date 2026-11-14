@@ -1,0 +1,21 @@
+{
+  "run_id": "20261114T041801Z_c8a613be",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "dimensions": 384,
+  "settings": {
+    "manifest": "/Users/macbook/desktop2/VinUni/K5-L3-Day06-DataIngestionEngineering/starter/data/manifest.json",
+    "benchmark": "/Users/macbook/desktop2/VinUni/K5-L3-Day06-DataIngestionEngineering/starter/data/benchmark.json",
+    "output": "/Users/macbook/desktop2/VinUni/K5-L3-Day06-DataIngestionEngineering/starter/results",
+    "split": "test",
+    "fixed_size": 500,
+    "overlap": 50,
+    "paragraph_size": 500,
+    "batch_size": 32,
+    "device": "cpu",
+    "model": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "manifest_sha256": "4efe8d6bf68525bd1e815879d6b3714062da9e5af980d693bec3553fc628ba96",
+  "benchmark_sha256": "2c6e3ba13b76c6e06d3f329e24a06ddfd770fc2c22c20df249534817f95dd632",
+  "search": "exact cosine",
+  "embedding_normalized": true
+}

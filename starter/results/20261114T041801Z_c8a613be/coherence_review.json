@@ -1,0 +1,782 @@
+[
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "6c5d7da5e595b9fbdbecb80fdcdd27794a56e2a91a04293af9bb26a9d9df8d44",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 76,
+      "text": "Chương 5\nCác khái niệm cơ bản\nNội dung của chương này được tham khảo chủ yếu từ Mục 5.1 trong cuốn sáchDeep learning\n(Goodfellow, 2016).\nMột thuật toán machine learning là một thuật toán có khả nănghọc tậptừ dữ liệu. Vậy thực\nsự học tậpở đây có nghĩa như thế nào? Theo Mitchell trong cuốnMachine Learning[M+97],\nMục 1.1, thì “A computer program is said tolearn from experienceE with respect to some\ntasks T and performance measureP, if its performance at tasks inT, as measured byP,\nimproves with exp",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 64,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "c7b275d4d28311caa7ba077994d64d6d4f6979580f7810693fadd4788bc4f231",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 77,
+      "text": "65 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nđiểm dữ liệu như một vector1 x∈ Rd trong đó mỗi phần tửxi là một đặc trưng, vector này\nthường được gọi làvector đặc trưng(feature vector). Ví dụ, trong một bức ảnh, mỗi giá trị\ncủa một điểm ảnh có thể coi là một đặc trưng, vector chứa toàn bộ giá trị các pixel của ảnh\ncó thể coi là một vector đặc trưng. Chương 6 sẽ bàn sâu thêm về vector đặc trưng của dữ\nliệu.\nRất nhiều nhiệm vụ phức tạp có thể được giải quyết bằng machine learning. Dưới đây là\nmột trong những b",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 65,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "fed479a1d5d40da4058111ee08c769cb76acfbf17ba7e12ae7247b18dd92b40e",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 78,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 66\nVí dụ 1:Ước lượng một căn nhà rộngx m2, cóy phòng ngủ và cách trung tâm thành phố\nz km sẽ có giá khoảng bao nhiêu?\nVí dụ 2:Microsoft có một ứng dụng dự đoán giới tính và tuổi dựa trên khuôn mặt (http:\n//how-old.net/ ). Phần dự đoán giới tính có thể được coi là một thuật toán classification,\nphần dự đoán tuổi có thể coi là một thuật toán regression. Chú ý rằng phần dự đoán tuổi\ncũng có thể coi là classification nếu ta coi tuổi là một số nguyên dương không lớn hơn",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 66,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "4962bcbf37e4ce5e688007399799ec185cde96989c90e6555400b297e7616a81",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 79,
+      "text": "67 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\n5.2 Phép đánh giá,P\nĐể kiểm tra năng lực của một thuật toán machine learning, chúng ta cần phải thiết kế các\nphép đánh giá có thể đo đạc được kết quả.\nThông thường, khi thực hiện một thuật toán machine learning, dữ liệu sẽ được chia thành\nhai phần riêng biệt:tập huấn luyện(training set) vàtập kiểm thử(test set). Tập huấn luyện\nsẽ được dùng để tìm các tham số mô hình. Tập kiểm thử được dùng để đánh giá năng lực\ncủa mô hình tìm được. Có một điểm cần lưu ý rằng khi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 67,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "58faf9315d94eb2cea55126100d1efe648d8c749cf432b6c60ec38f831a95bc1",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 80,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 68\nMục đích là xấp xỉ hàm sốf thật tốt để khi có một dữ liệux mới, chúng ta có thể tính được\nnhãn tương ứng của nóy =f(x).\nNgược lại, trongunsupervised learning, chúng ta không biết được kết quả đầu ra mà chỉ\nbiết các vector đặc trưng của dữ liệu đầu vào. Các thuật toán unsupervised learning sẽ dựa\nvào cấu trúc của dữ liệu để thực hiện một công việc nào đó, ví dụ như phân nhóm hoặcgiảm\nsố chiều của dữ liệu(dimentionality reduction). Một cách toán học, unsupervised ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 68,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "a06c77ecdc86be7c7e8ed72a88bc7270267d597f1b83ff279b1ed3304b9a6d0f",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 81,
+      "text": "69 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nVí dụ 1:AlphaGo gần đây nổi tiếng với việc chơi cờ vây thắng cả con người (https://goo.\ngl/PzKcvP ). Cờ vây được xem là có độ phức tạp cực kỳ cao2 với tổng số nước đi là xấp\nxỉ 10761, so với cờ vua là10120 và tổng số nguyên tử trong toàn vũ trụ là khoảng1080!! Hệ\nthống phải chọn ra mộtđường đi nước bướctối ưu trong số hàng nhiều tỉ tỉ lựa chọn, và\ntất nhiên, việc thử tất cả các lựa chọn là không khả thi. Về cơ bản, AlphaGo bao gồm các\nthuật toán thuộc cả supervi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 69,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "413982251879bd4f337e5459425fb2c5c1c7b9edb6a539e611dd119892980baa",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 82,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 70\nQuan hệ giữa một phép đánh giá và các tham số mô hình thường được mô tả thông qua\nmột hàm số được gọi làhàm mất mát(loss function, haycost function). Hàm mất mát này\nthường có giá trị nhỏ khi phép đánh giá cho kết quả tốt và ngược lại. Việc đi tìm các tham\nsố mô hình sao cho phép đánh giá trả về kết quả tốt tương đương với việc tối thiểu hàm\nmất mát. Như vậy, việc xây dựng một mô hình machine learning chính là việc đi giải một\nbài toán tối ưu. Quá trình đó có th",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 70,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "9b1e1165beb174689c772543b5bdcb791f8e6bdc6a58538e3dbf770d994b3b2a",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 83,
+      "text": "Chương 6\nGiới thiệu về feature engineering\n6.1 Giới thiệu\nMỗi điểm dữ liệu trong các bài toán machine learning thường được biểu diễn bằng một vector\nđược gọi làvector đặc trưng(feature vector)1. Hơn nữa, trong cùng một bài toán, các feature\nvector của tất cả các điểm thường có kích thước như nhau. Điều này là cần thiết vì các phép\ntoán trong mô hình (cộng, nhân ma trận, vector) yêu cầu đầu vào có cùng kích thước. Khi\nđó, toàn bộ dữ liệu có thể được lưu trong một ma trận mà mỗi hàng hoặc mỗi cột ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 71,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "13abf6467bc825751fcf2cd88c8a4ce4f42ec01338eac4b47f87e38f1ffc42ea",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 84,
+      "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 72\nKhi làm việc với các bài toán machine learning thực tế, nhìn chung chúng ta chỉ có được\ndữ liệu thô chưa qua chỉnh sửa, chọn lọc. Ngoài ra, chúng ta có thể phải tìm cách loại ra\nnhững dữ liệu nhiễu, và để đưa dữ liệu thô với kích thước, hay số chiều khác nhau về cùng\nmột chuẩn (cùng là các vector hoặc ma trận). Dữ liệu chuẩn mới này phải đảm bảo giữ được\nnhững thông tin đặc trưng cho dữ liệu thô ban đầu. Không những thế, tùy vào từng bài\ntoán, ta cầ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 72,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "A",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "c58db44ae1879aa12548e729355bc2e5522628d4766af642d2bad55a7dbdf702",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 85,
+      "text": "73 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nTRAINING PHASE\nRaw training\ndata (input)\nTraining output\n(ytrain)\nPrior knowledge\nabout data\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtrain)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTEST PHASE\nRaw test\ndata (input)\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtest)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTest output\n(ytest)\nHình 6.1: Mô hình thường gặp trong các bài toán machine learning",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 73,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "8f606800ddc63836a62d6e819c2585087c017ff6d00014dc23a7ccd6c0221df6",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 76,
+      "text": "Chương 5\nCác khái niệm cơ bản\nNội dung của chương này được tham khảo chủ yếu từ Mục 5.1 trong cuốn sáchDeep learning\n(Goodfellow, 2016).\nMột thuật toán machine learning là một thuật toán có khả nănghọc tậptừ dữ liệu. Vậy thực\nsự học tậpở đây có nghĩa như thế nào? Theo Mitchell trong cuốnMachine Learning[M+97],\nMục 1.1, thì “A computer program is said tolearn from experienceE with respect to some\ntasks T and performance measureP, if its performance at tasks inT, as measured byP,\nimproves with exp",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 64,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "c460a9637dd9b138532f9a523081c0c9a5a52087fb7118b89c0dfd8a6f341dae",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 77,
+      "text": "65 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nđiểm dữ liệu như một vector1 x∈ Rd trong đó mỗi phần tửxi là một đặc trưng, vector này\nthường được gọi làvector đặc trưng(feature vector). Ví dụ, trong một bức ảnh, mỗi giá trị\ncủa một điểm ảnh có thể coi là một đặc trưng, vector chứa toàn bộ giá trị các pixel của ảnh\ncó thể coi là một vector đặc trưng. Chương 6 sẽ bàn sâu thêm về vector đặc trưng của dữ\nliệu.\nRất nhiều nhiệm vụ phức tạp có thể được giải quyết bằng machine learning. Dưới đây là\nmột trong những b",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 65,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "17c3dc9a953942daf0fd7d743f23794ae303aca584d0b1daaa2f1b071c65c09f",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 78,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 66\nVí dụ 1:Ước lượng một căn nhà rộngx m2, cóy phòng ngủ và cách trung tâm thành phố\nz km sẽ có giá khoảng bao nhiêu?\nVí dụ 2:Microsoft có một ứng dụng dự đoán giới tính và tuổi dựa trên khuôn mặt (http:\n//how-old.net/ ). Phần dự đoán giới tính có thể được coi là một thuật toán classification,\nphần dự đoán tuổi có thể coi là một thuật toán regression. Chú ý rằng phần dự đoán tuổi\ncũng có thể coi là classification nếu ta coi tuổi là một số nguyên dương không lớn hơn",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 66,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "20152a8c663432744be675e1f0788a7dade0e7e53daef7e39ac361c6714f769e",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 79,
+      "text": "67 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\n5.2 Phép đánh giá,P\nĐể kiểm tra năng lực của một thuật toán machine learning, chúng ta cần phải thiết kế các\nphép đánh giá có thể đo đạc được kết quả.\nThông thường, khi thực hiện một thuật toán machine learning, dữ liệu sẽ được chia thành\nhai phần riêng biệt:tập huấn luyện(training set) vàtập kiểm thử(test set). Tập huấn luyện\nsẽ được dùng để tìm các tham số mô hình. Tập kiểm thử được dùng để đánh giá năng lực\ncủa mô hình tìm được. Có một điểm cần lưu ý rằng khi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 67,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "20be2f2798fefc0e687fb7805c621c4a6285e352422a0842b762007b28980c2c",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 80,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 68\nMục đích là xấp xỉ hàm sốf thật tốt để khi có một dữ liệux mới, chúng ta có thể tính được\nnhãn tương ứng của nóy =f(x).\nNgược lại, trongunsupervised learning, chúng ta không biết được kết quả đầu ra mà chỉ\nbiết các vector đặc trưng của dữ liệu đầu vào. Các thuật toán unsupervised learning sẽ dựa\nvào cấu trúc của dữ liệu để thực hiện một công việc nào đó, ví dụ như phân nhóm hoặcgiảm\nsố chiều của dữ liệu(dimentionality reduction). Một cách toán học, unsupervised ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 68,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "ef6679f93c7c62ec9a067ef8cf0481eb40601446b9fe152ca90ba7df7e1cb974",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 81,
+      "text": "69 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nVí dụ 1:AlphaGo gần đây nổi tiếng với việc chơi cờ vây thắng cả con người (https://goo.\ngl/PzKcvP ). Cờ vây được xem là có độ phức tạp cực kỳ cao2 với tổng số nước đi là xấp\nxỉ 10761, so với cờ vua là10120 và tổng số nguyên tử trong toàn vũ trụ là khoảng1080!! Hệ\nthống phải chọn ra mộtđường đi nước bướctối ưu trong số hàng nhiều tỉ tỉ lựa chọn, và\ntất nhiên, việc thử tất cả các lựa chọn là không khả thi. Về cơ bản, AlphaGo bao gồm các\nthuật toán thuộc cả supervi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 69,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "a79ab88c4abdeae942ab9661e05a7f34a6ba6c34c0ef9acbc913fe8a0e67b1b4",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 82,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 70\nQuan hệ giữa một phép đánh giá và các tham số mô hình thường được mô tả thông qua\nmột hàm số được gọi làhàm mất mát(loss function, haycost function). Hàm mất mát này\nthường có giá trị nhỏ khi phép đánh giá cho kết quả tốt và ngược lại. Việc đi tìm các tham\nsố mô hình sao cho phép đánh giá trả về kết quả tốt tương đương với việc tối thiểu hàm\nmất mát. Như vậy, việc xây dựng một mô hình machine learning chính là việc đi giải một\nbài toán tối ưu. Quá trình đó có th",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 70,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "ee7da9761a4e4ff5128baddabdb7d467a1b537d10c5527ae7a6e6f59aa62e008",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 83,
+      "text": "Chương 6\nGiới thiệu về feature engineering\n6.1 Giới thiệu\nMỗi điểm dữ liệu trong các bài toán machine learning thường được biểu diễn bằng một vector\nđược gọi làvector đặc trưng(feature vector)1. Hơn nữa, trong cùng một bài toán, các feature\nvector của tất cả các điểm thường có kích thước như nhau. Điều này là cần thiết vì các phép\ntoán trong mô hình (cộng, nhân ma trận, vector) yêu cầu đầu vào có cùng kích thước. Khi\nđó, toàn bộ dữ liệu có thể được lưu trong một ma trận mà mỗi hàng hoặc mỗi cột ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 71,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "205c3b355667d52d651060149774a165ba8a9e3aad6e1633dccb9ce493fb0ac4",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 84,
+      "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 72\nKhi làm việc với các bài toán machine learning thực tế, nhìn chung chúng ta chỉ có được\ndữ liệu thô chưa qua chỉnh sửa, chọn lọc. Ngoài ra, chúng ta có thể phải tìm cách loại ra\nnhững dữ liệu nhiễu, và để đưa dữ liệu thô với kích thước, hay số chiều khác nhau về cùng\nmột chuẩn (cùng là các vector hoặc ma trận). Dữ liệu chuẩn mới này phải đảm bảo giữ được\nnhững thông tin đặc trưng cho dữ liệu thô ban đầu. Không những thế, tùy vào từng bài\ntoán, ta cầ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 72,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "B",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "d2394837fb612b37d557b74a6948b5b5e99ed63eae1b9737b3b8cd605129a6ae",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 85,
+      "text": "73 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nTRAINING PHASE\nRaw training\ndata (input)\nTraining output\n(ytrain)\nPrior knowledge\nabout data\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtrain)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTEST PHASE\nRaw test\ndata (input)\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtest)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTest output\n(ytest)\nHình 6.1: Mô hình thường gặp trong các bài toán machine learning",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 73,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "8f606800ddc63836a62d6e819c2585087c017ff6d00014dc23a7ccd6c0221df6",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 76,
+      "text": "Chương 5\nCác khái niệm cơ bản\nNội dung của chương này được tham khảo chủ yếu từ Mục 5.1 trong cuốn sáchDeep learning\n(Goodfellow, 2016).\nMột thuật toán machine learning là một thuật toán có khả nănghọc tậptừ dữ liệu. Vậy thực\nsự học tậpở đây có nghĩa như thế nào? Theo Mitchell trong cuốnMachine Learning[M+97],\nMục 1.1, thì “A computer program is said tolearn from experienceE with respect to some\ntasks T and performance measureP, if its performance at tasks inT, as measured byP,\nimproves with exp",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 64,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "c460a9637dd9b138532f9a523081c0c9a5a52087fb7118b89c0dfd8a6f341dae",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 77,
+      "text": "65 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nđiểm dữ liệu như một vector1 x∈ Rd trong đó mỗi phần tửxi là một đặc trưng, vector này\nthường được gọi làvector đặc trưng(feature vector). Ví dụ, trong một bức ảnh, mỗi giá trị\ncủa một điểm ảnh có thể coi là một đặc trưng, vector chứa toàn bộ giá trị các pixel của ảnh\ncó thể coi là một vector đặc trưng. Chương 6 sẽ bàn sâu thêm về vector đặc trưng của dữ\nliệu.\nRất nhiều nhiệm vụ phức tạp có thể được giải quyết bằng machine learning. Dưới đây là\nmột trong những b",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 65,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "17c3dc9a953942daf0fd7d743f23794ae303aca584d0b1daaa2f1b071c65c09f",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 78,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 66\nVí dụ 1:Ước lượng một căn nhà rộngx m2, cóy phòng ngủ và cách trung tâm thành phố\nz km sẽ có giá khoảng bao nhiêu?\nVí dụ 2:Microsoft có một ứng dụng dự đoán giới tính và tuổi dựa trên khuôn mặt (http:\n//how-old.net/ ). Phần dự đoán giới tính có thể được coi là một thuật toán classification,\nphần dự đoán tuổi có thể coi là một thuật toán regression. Chú ý rằng phần dự đoán tuổi\ncũng có thể coi là classification nếu ta coi tuổi là một số nguyên dương không lớn hơn",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 66,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "20152a8c663432744be675e1f0788a7dade0e7e53daef7e39ac361c6714f769e",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 79,
+      "text": "67 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\n5.2 Phép đánh giá,P\nĐể kiểm tra năng lực của một thuật toán machine learning, chúng ta cần phải thiết kế các\nphép đánh giá có thể đo đạc được kết quả.\nThông thường, khi thực hiện một thuật toán machine learning, dữ liệu sẽ được chia thành\nhai phần riêng biệt:tập huấn luyện(training set) vàtập kiểm thử(test set). Tập huấn luyện\nsẽ được dùng để tìm các tham số mô hình. Tập kiểm thử được dùng để đánh giá năng lực\ncủa mô hình tìm được. Có một điểm cần lưu ý rằng khi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 67,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "20be2f2798fefc0e687fb7805c621c4a6285e352422a0842b762007b28980c2c",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 80,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 68\nMục đích là xấp xỉ hàm sốf thật tốt để khi có một dữ liệux mới, chúng ta có thể tính được\nnhãn tương ứng của nóy =f(x).\nNgược lại, trongunsupervised learning, chúng ta không biết được kết quả đầu ra mà chỉ\nbiết các vector đặc trưng của dữ liệu đầu vào. Các thuật toán unsupervised learning sẽ dựa\nvào cấu trúc của dữ liệu để thực hiện một công việc nào đó, ví dụ như phân nhóm hoặcgiảm\nsố chiều của dữ liệu(dimentionality reduction). Một cách toán học, unsupervised ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 68,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "ef6679f93c7c62ec9a067ef8cf0481eb40601446b9fe152ca90ba7df7e1cb974",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 81,
+      "text": "69 CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN\nVí dụ 1:AlphaGo gần đây nổi tiếng với việc chơi cờ vây thắng cả con người (https://goo.\ngl/PzKcvP ). Cờ vây được xem là có độ phức tạp cực kỳ cao2 với tổng số nước đi là xấp\nxỉ 10761, so với cờ vua là10120 và tổng số nguyên tử trong toàn vũ trụ là khoảng1080!! Hệ\nthống phải chọn ra mộtđường đi nước bướctối ưu trong số hàng nhiều tỉ tỉ lựa chọn, và\ntất nhiên, việc thử tất cả các lựa chọn là không khả thi. Về cơ bản, AlphaGo bao gồm các\nthuật toán thuộc cả supervi",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 69,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "a79ab88c4abdeae942ab9661e05a7f34a6ba6c34c0ef9acbc913fe8a0e67b1b4",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 82,
+      "text": "CHƯƠNG 5. CÁC KHÁI NIỆM CƠ BẢN 70\nQuan hệ giữa một phép đánh giá và các tham số mô hình thường được mô tả thông qua\nmột hàm số được gọi làhàm mất mát(loss function, haycost function). Hàm mất mát này\nthường có giá trị nhỏ khi phép đánh giá cho kết quả tốt và ngược lại. Việc đi tìm các tham\nsố mô hình sao cho phép đánh giá trả về kết quả tốt tương đương với việc tối thiểu hàm\nmất mát. Như vậy, việc xây dựng một mô hình machine learning chính là việc đi giải một\nbài toán tối ưu. Quá trình đó có th",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "basic-concepts",
+        "chapter": 5,
+        "chapter_title": "Các khái niệm cơ bản",
+        "printed_page": 70,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "ee7da9761a4e4ff5128baddabdb7d467a1b537d10c5527ae7a6e6f59aa62e008",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 83,
+      "text": "Chương 6\nGiới thiệu về feature engineering\n6.1 Giới thiệu\nMỗi điểm dữ liệu trong các bài toán machine learning thường được biểu diễn bằng một vector\nđược gọi làvector đặc trưng(feature vector)1. Hơn nữa, trong cùng một bài toán, các feature\nvector của tất cả các điểm thường có kích thước như nhau. Điều này là cần thiết vì các phép\ntoán trong mô hình (cộng, nhân ma trận, vector) yêu cầu đầu vào có cùng kích thước. Khi\nđó, toàn bộ dữ liệu có thể được lưu trong một ma trận mà mỗi hàng hoặc mỗi cột ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 71,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "205c3b355667d52d651060149774a165ba8a9e3aad6e1633dccb9ce493fb0ac4",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 84,
+      "text": "CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING 72\nKhi làm việc với các bài toán machine learning thực tế, nhìn chung chúng ta chỉ có được\ndữ liệu thô chưa qua chỉnh sửa, chọn lọc. Ngoài ra, chúng ta có thể phải tìm cách loại ra\nnhững dữ liệu nhiễu, và để đưa dữ liệu thô với kích thước, hay số chiều khác nhau về cùng\nmột chuẩn (cùng là các vector hoặc ma trận). Dữ liệu chuẩn mới này phải đảm bảo giữ được\nnhững thông tin đặc trưng cho dữ liệu thô ban đầu. Không những thế, tùy vào từng bài\ntoán, ta cầ",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 72,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  },
+  {
+    "strategy": "C",
+    "position": "first text on page",
+    "chunk": {
+      "chunk_id": "d2394837fb612b37d557b74a6948b5b5e99ed63eae1b9737b3b8cd605129a6ae",
+      "document_id": "book-ml",
+      "source": "book_ML_color.pdf",
+      "page": 85,
+      "text": "73 CHƯƠNG 6. GIỚI THIỆU VỀ FEATURE ENGINEERING\nTRAINING PHASE\nRaw training\ndata (input)\nTraining output\n(ytrain)\nPrior knowledge\nabout data\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtrain)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTEST PHASE\nRaw test\ndata (input)\nFeature\nExtraction\n(Feature\nEngineering)\nExtracted\nfeatures\n(Xtest)\nClassiﬁcation,\nRegression,\nClustering,...\nAlgorithms\nTest output\n(ytest)\nHình 6.1: Mô hình thường gặp trong các bài toán machine learning",
+      "metadata": {
+        "title": "Machine Learning cơ bản",
+        "author": "Vũ Hữu Tiệp",
+        "language": "vi",
+        "year": 2018,
+        "source_url": "https://machinelearningcoban.com/ebook/",
+        "section": "feature-engineering",
+        "chapter": 6,
+        "chapter_title": "Giới thiệu về feature engineering",
+        "printed_page": 73,
+        "document_type": "pdf",
+        "is_empty": false
+      }
+    },
+    "coherence_score": null,
+    "reason": ""
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "A": {
+    "namespace": "20261114T041801Z_c8a613be:A",
+    "chunks": 184,
+    "characters": 83802,
+    "embedding_seconds": 4.115793208009563,
+    "ingestion_seconds": 4.320592334028333,
+    "embedding_reused_from": null,
+    "api_cost": 0
+  },
+  "B": {
+    "namespace": "20261114T041801Z_c8a613be:B",
+    "chunks": 172,
+    "characters": 76302,
+    "embedding_seconds": 3.8614396249176934,
+    "ingestion_seconds": 4.000008959090337,
+    "embedding_reused_from": null,
+    "api_cost": 0
+  },
+  "C": {
+    "namespace": "20261114T041801Z_c8a613be:C",
+    "chunks": 172,
+    "characters": 76302,
+    "embedding_seconds": 0.0,
+    "ingestion_seconds": 0.09822354197967798,
+    "embedding_reused_from": "B",
+    "api_cost": 0
+  }
+}

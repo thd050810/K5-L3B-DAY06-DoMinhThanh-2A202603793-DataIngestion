@@ -1,0 +1,227 @@
+[
+  {
+    "id": "q01",
+    "split": "dev",
+    "type": "dieu_kien",
+    "question": "Khi xác suất cao nhất của một bộ phân lớp chỉ nhỉnh hơn các xác suất tiếp theo, mức độ chắc chắn của dự đoán nên được hiểu thế nào?",
+    "expected_answer": "Độ chắc chắn thấp hơn; chênh lệch xác suất nhỏ cho thấy khả năng phân loại nhầm cao hơn.",
+    "gold_source_id": "book-ml",
+    "gold_page": 77,
+    "evidence_quote": "Ngược lại, nếu độ chênh lệch giữa xác suất cao nhất và các xác suất tiếp theo là nhỏ, thì khả năng mô hình đã phân loại nhầm là cao hơn."
+  },
+  {
+    "id": "q02",
+    "split": "dev",
+    "type": "phan_biet",
+    "question": "Nếu đầu ra là giá trị thực thay vì nhãn thuộc một số nhóm, bài toán được gọi là gì?",
+    "expected_answer": "Hồi quy, hay regression.",
+    "gold_source_id": "book-ml",
+    "gold_page": 77,
+    "evidence_quote": "Nếu nhãn không được chia thành các nhóm mà là các giá trị thực (có thể vô hạn) thì bài toán được gọi làhồi quy, một số tài liệu gọi làtiên lượng (regression).",
+    "alternative_gold": [
+      {
+        "gold_source_id": "book-ml",
+        "gold_page": 95,
+        "evidence_quote": "Ngoài ra, giá trị của đầu ra có thể nhận rất nhiều giá trị thực dương khác nhau. Vì vậy, đây là một bài toán regression."
+      }
+    ]
+  },
+  {
+    "id": "q03",
+    "split": "dev",
+    "type": "dieu_kien",
+    "question": "Trong phần Các khái niệm cơ bản, khi tìm tham số mô hình được phép dùng thông tin từ tập nào, và tập kiểm thử có vai trò gì?",
+    "expected_answer": "Chỉ dùng thông tin của tập huấn luyện để tìm tham số; tập kiểm thử đánh giá năng lực mô hình.",
+    "gold_source_id": "book-ml",
+    "gold_page": 79,
+    "evidence_quote": "Tập kiểm thử được dùng để đánh giá năng lực của mô hình tìm được. Có một điểm cần lưu ý rằng khi tìm các tham số mô hình, ta chỉ được dùng các thông tin trong tập huấn luyện.",
+    "filter": {
+      "section": "basic-concepts"
+    }
+  },
+  {
+    "id": "q04",
+    "split": "dev",
+    "type": "truc_tiep",
+    "question": "Supervised learning dự đoán đầu ra của dữ liệu mới dựa trên loại dữ liệu đã biết nào?",
+    "expected_answer": "Các cặp đầu vào và đầu ra đã biết từ trước.",
+    "gold_source_id": "book-ml",
+    "gold_page": 79,
+    "evidence_quote": "Supervised learning là thuật toán dự đoán đầu ra của một hoặc nhiều dữ liệu mới dựa trên các cặp (đầu vào, đầu ra) đã biết từ trước."
+  },
+  {
+    "id": "q05",
+    "split": "dev",
+    "type": "tinh_huong",
+    "question": "Một tập dữ liệu rất lớn chỉ có một phần được gán nhãn thuộc dạng học nào?",
+    "expected_answer": "Học bán giám sát, hay semi-supervised learning.",
+    "gold_source_id": "book-ml",
+    "gold_page": 80,
+    "evidence_quote": "Các bài toán khi chúng ta có một lượng lớn dữ liệuX nhưng chỉ một phần trong chúng được gán nhãn được gọi làhọc bán giám sát, haysemi-supervised learning."
+  },
+  {
+    "id": "q06",
+    "split": "dev",
+    "type": "dien_dat_lai",
+    "question": "Vì sao việc tìm tham số để mô hình được đánh giá tốt có thể chuyển thành một bài toán tối ưu?",
+    "expected_answer": "Vì tìm tham số cho kết quả đánh giá tốt tương đương với tối thiểu hóa hàm mất mát.",
+    "gold_source_id": "book-ml",
+    "gold_page": 82,
+    "evidence_quote": "Việc đi tìm các tham số mô hình sao cho phép đánh giá trả về kết quả tốt tương đương với việc tối thiểu hàm mất mát. Như vậy, việc xây dựng một mô hình machine learning chính là việc đi giải một bài toán tối ưu."
+  },
+  {
+    "id": "q07",
+    "split": "dev",
+    "type": "metadata",
+    "question": "Trong phần Giới thiệu về feature engineering, vì sao vector đặc trưng của các điểm trong cùng bài toán thường phải cùng kích thước?",
+    "expected_answer": "Các phép toán của mô hình như cộng, nhân ma trận và vector yêu cầu đầu vào cùng kích thước.",
+    "gold_source_id": "book-ml",
+    "gold_page": 83,
+    "evidence_quote": "Điều này là cần thiết vì các phép toán trong mô hình (cộng, nhân ma trận, vector) yêu cầu đầu vào có cùng kích thước.",
+    "filter": {
+      "section": "feature-engineering"
+    }
+  },
+  {
+    "id": "q08",
+    "split": "dev",
+    "type": "dieu_kien",
+    "question": "Khi phân loại các đa giác màu thành tam giác và hình vuông, nên quan tâm số cạnh hay màu sắc?",
+    "expected_answer": "Quan tâm số cạnh, không cần quan tâm màu sắc trong nhiệm vụ phân loại tam giác và hình vuông.",
+    "gold_source_id": "book-ml",
+    "gold_page": 86,
+    "evidence_quote": "Trong bài toán phân loại đa giác, nếu các nhãn làtam giác và vuông, ta không quan tâm tới màu sắc mà chỉ quan tâm tới số cạnh của đa giác."
+  },
+  {
+    "id": "q09",
+    "split": "dev",
+    "type": "metadata_dieu_kien",
+    "question": "Trong phần Giới thiệu về feature engineering, Bag of Words thường xử lý từ không có trong từ điển bằng cách nào?",
+    "expected_answer": "Thêm phần tử <Unknown> vào từ điển và coi mọi từ ngoài từ điển là <Unknown>; số chiều tăng thêm một.",
+    "gold_source_id": "book-ml",
+    "gold_page": 88,
+    "evidence_quote": "Một kỹ thuật thường được dùng là thêm phần tử<Unknown> vào trong từ điển. Mọi từ không có trong từ điển đều được coi là<Unknown>. Lúc này, kích thước của vector đặc trưng sẽ tăng lên một.",
+    "filter": {
+      "section": "feature-engineering"
+    }
+  },
+  {
+    "id": "q10",
+    "split": "dev",
+    "type": "dien_dat_lai",
+    "question": "Thông tin nào bị Bag of Words bỏ qua khiến những câu có cùng từ nhưng ý nghĩa khác nhau có thể có cùng vector?",
+    "expected_answer": "Thứ tự các từ và sự liên kết giữa các câu, các đoạn văn.",
+    "gold_source_id": "book-ml",
+    "gold_page": 89,
+    "evidence_quote": "Nhược điểm lớn nhất của BoW là nó không mang thông tin về thứ tự của các từ, cũng như sự liên kết giữa các câu, các đoạn văn trong văn bản."
+  },
+  {
+    "id": "q11",
+    "split": "dev",
+    "type": "dieu_kien",
+    "question": "Khi bộ dữ liệu ảnh mới nhỏ và tương tự bộ dữ liệu gốc, nên huấn luyện lại cả network hay chỉ huấn luyện classifier trên feature có sẵn?",
+    "expected_answer": "Không cần huấn luyện lại network; huấn luyện một classifier dựa trên feature vector ở đầu ra layer gần cuối.",
+    "gold_source_id": "book-ml",
+    "gold_page": 93,
+    "evidence_quote": "CSDL mới là nhỏ và tương tự như CSDL gốc.Vì CSDL mới nhỏ, việc tiếp tục huấn luyện mô hình có thể dễ dẫn đến hiện tượng overfitting (Chương 8). Cũng vì hai CSDL là tương tự nhau, ta dự đoán rằng các high-level feature của chúng là tương tự nhau. Vì vậy, ta không cần huấn luyện lại network mà chỉ cần huấn luyện một classifer dựa trên feature vector ở đầu ra ở layer gần cuối."
+  },
+  {
+    "id": "q12",
+    "split": "dev",
+    "type": "metadata",
+    "question": "Trong chương Linear regression, thuật toán thuộc nhóm học nào và quan hệ đầu vào–đầu ra được mô tả ra sao?",
+    "expected_answer": "Thuộc supervised learning; đầu vào và đầu ra được mô tả bằng một hàm tuyến tính.",
+    "gold_source_id": "book-ml",
+    "gold_page": 95,
+    "evidence_quote": "Linear regression là một thuật toán supervised, ở đó quan hệ giữa đầu vào và đầu ra được mô tả bởi một hàm tuyến tính.",
+    "filter": {
+      "section": "linear-regression"
+    }
+  },
+  {
+    "id": "q13",
+    "split": "dev",
+    "type": "dien_dat_lai",
+    "question": "Theo mục Trung bình sai số, vì sao lấy trung bình mất mát theo điểm dữ liệu có ích khi số lượng dữ liệu thay đổi?",
+    "expected_answer": "Nó giúp đánh giá theo từng điểm khi kích thước tập dữ liệu thay đổi, đồng thời giúp tránh tràn số khi có quá nhiều điểm.",
+    "gold_source_id": "book-ml",
+    "gold_page": 97,
+    "evidence_quote": "Việc lấy trung bình này quan trọng vì số lượng điểm dữ liệu trong mỗi tập dữ liệu có thể thay đổi. Việc tính toán mất mát trên từng điểm dữ liệu sẽ hữu ích hơn trong việc đánh giá chất lượng mô hình sau này. Ngoài ra, việc lấy trung bình cũng giúp tránh hiện tượng tràn số khi số lượng điểm dữ liệu quá nhiều."
+  },
+  {
+    "id": "q14",
+    "split": "dev",
+    "type": "truc_tiep",
+    "question": "Bias trick bổ sung gì vào vector đặc trưng và đưa bias vào đâu?",
+    "expected_answer": "Thêm một đặc trưng bằng 1 vào vector đầu vào và ghép bias vào vector hệ số.",
+    "gold_source_id": "book-ml",
+    "gold_page": 98,
+    "evidence_quote": "Kỹ thuật thêm một đặc trưng bằng 1 vào vector đặc trưng và ghép biasb vào vector hệ số w như trên còn được gọi làbias trick."
+  },
+  {
+    "id": "q15",
+    "split": "dev",
+    "type": "tinh_huong",
+    "question": "Nếu muốn linear regression ít bị nhiễu ảnh hưởng hơn bằng cách thay hàm mất mát, sách đề cập loại loss và tên mô hình nào?",
+    "expected_answer": "Dùng Huber loss; mô hình được gọi là Huber regression.",
+    "gold_source_id": "book-ml",
+    "gold_page": 101,
+    "evidence_quote": "Hoặc hàm mất mát có thể thay đổi một chút để tránh việc tối ưu các nhiễu bằng cách sử dụngHuber loss(https://goo.gl/TBUWzg ). Linear regression với Huber loss được gọi làHuber regression,"
+  },
+  {
+    "id": "q16",
+    "split": "test",
+    "type": "metadata_tinh_huong",
+    "question": "Trong chương Overfitting, mô hình có training error thấp nhưng test error cao được chẩn đoán thế nào?",
+    "expected_answer": "Mô hình bị overfitting.",
+    "gold_source_id": "book-ml",
+    "gold_page": 105,
+    "evidence_quote": "Nếutraining error thấp nhưng test error cao, ta nói mô hình bị overfitting.",
+    "filter": {
+      "section": "overfitting"
+    }
+  },
+  {
+    "id": "q17",
+    "split": "test",
+    "type": "truc_tiep",
+    "question": "Validation set được trích từ tập nào và phần còn lại được dùng làm gì?",
+    "expected_answer": "Trích một tập con nhỏ từ training set ban đầu để đánh giá; phần còn lại trở thành training set mới.",
+    "gold_source_id": "book-ml",
+    "gold_page": 106,
+    "evidence_quote": "Tập con nhỏđược trích ra từ training setnày được gọi làvalidation set. Lúc này,training set mới là phần còn lại của training set ban đầu."
+  },
+  {
+    "id": "q18",
+    "split": "test",
+    "type": "dieu_kien",
+    "question": "K-fold cross-validation trở thành leave-one-out trong điều kiện nào?",
+    "expected_answer": "Khi k bằng số phần tử của training set ban đầu, mỗi tập con có đúng một phần tử.",
+    "gold_source_id": "book-ml",
+    "gold_page": 107,
+    "evidence_quote": "Khi k bằng với số lượng phần tử trong training set ban đầu, tức mỗi tập con có đúng một phần tử, ta gọi kỹ thuật này làleave-one-out."
+  },
+  {
+    "id": "q19",
+    "split": "test",
+    "type": "metadata_dieu_kien",
+    "question": "Trong chương Overfitting, early stopping khuyên làm gì khi training error còn giảm nhưng validation error bắt đầu tăng?",
+    "expected_answer": "Dừng thuật toán huấn luyện.",
+    "gold_source_id": "book-ml",
+    "gold_page": 108,
+    "evidence_quote": "nếu training error vẫn có xu hướng giảm nhưng validation error có xu hướng tăng lên thì ta dừng thuật toán.",
+    "filter": {
+      "section": "overfitting"
+    }
+  },
+  {
+    "id": "q20",
+    "split": "test",
+    "type": "dien_dat_lai",
+    "question": "Vì sao LASSO regression còn được coi là một phương pháp lựa chọn đặc trưng?",
+    "expected_answer": "Các hệ số khác không ứng với đặc trưng quan trọng cho dự đoán; đặc trưng có hệ số bằng không được coi là ít quan trọng, nên LASSO giúp chọn đặc trưng hữu ích.",
+    "gold_source_id": "book-ml",
+    "gold_page": 109,
+    "evidence_quote": "Các thành phần khác không của w tương đương với các đặc trưng quan trọng đóng góp vào việc dự đoán đầu ra. Các đặc trưng ứng với thành phần bằng không củaw được coi là ít quan trọng. Chính vì vậy, LASSO regression cũng được coi là một phương pháp giúp lựa chọn những đặc trưng hữu ích cho mô hình; nó cũng là một trong các phương phápfeature selection."
+  }
+]
